@@ -7,55 +7,38 @@
     <title>Sign in to freeCodeCamp.org | freeCodeCamp.org</title>
     <link href="https://www.freecodecamp.org" rel="canonical" />
     <meta content="IE=edge" http-equiv="X-UA-Compatible" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta content="UvVP23KA-xdDS6KUpR3-1CEMMmNRev5bXUFo" name="csrf-token" />
+
+    <meta property="og:site_name" content="freeCodeCamp.org" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="freeCodeCamp.org" />
     <meta
-      content="https://cdn.freecodecamp.org/platform/universal/fcc_meta_1920x1080-indigo.png"
-      name="og:image"
+      property="og:description"
+      content="Browse thousands of programming tutorials written by experts. Learn Web Development, Data Science, DevOps, Security, and get developer career advice."
     />
-    <meta content="freeCodeCamp Auth0 Page" name="twitter:title" />
+    <meta property="og:url" content="https://www.freecodecamp.org/news/" />
     <meta
-      content="Authentication landing page for freecodecamp.org"
-      name="og:description"
+      property="og:image"
+      content="https://cdn.freecodecamp.org/platform/universal/fcc_meta_1920X1080-indigo.png"
     />
-    <meta content="#FFFFFF" name="msapplication-TileColor" />
     <meta
-      content="https://cdn.freecodecamp.org/universal/favicons/browserconfig.xml"
-      rel="msapplication-config"
+      property="article:publisher"
+      content="https://www.facebook.com/freecodecamp"
     />
-    <link
-      href="https://cdn.freecodecamp.org/universal/favicons/android-chrome-192x192.png"
-      rel="android-chrome"
-      sizes="192x192"
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="freeCodeCamp.org" />
+    <meta
+      name="twitter:description"
+      content="Browse thousands of programming tutorials written by experts. Learn Web Development, Data Science, DevOps, Security, and get developer career advice."
     />
-    <link
-      href="https://cdn.freecodecamp.org/universal/favicons/android-chrome-384x384.png"
-      rel="android-chrome"
-      sizes="384x384"
+    <meta name="twitter:url" content="https://www.freecodecamp.org/news/" />
+    <meta
+      name="twitter:image"
+      content="https://cdn.freecodecamp.org/platform/universal/fcc_meta_1920X1080-indigo.png"
     />
-    <link
-      href="https://cdn.freecodecamp.org/universal/favicons/site.webmanifest"
-      rel="manifest"
-    />
-    <link
-      href="https://cdn.freecodecamp.org/universal/favicons/apple-touch-icon.png"
-      rel="apple-touch-icon"
-      sizes="180x180"
-    />
-    <link
-      href="https://cdn.freecodecamp.org/universal/favicons/favicon-16x16.png"
-      rel="favicon"
-      sizes="16x16"
-    />
-    <link
-      href="https://cdn.freecodecamp.org/universal/favicons/favicon-32x32.png"
-      rel="favicon"
-      sizes="32x32"
-    />
-    <link
-      href="https://cdn.freecodecamp.org/universal/favicons/favicon.ico"
-      rel="icon"
-    />
+    <meta name="twitter:site" content="@freecodecamp" />
+    <meta property="og:image:width" content="1920" />
+    <meta property="og:image:height" content="1080" />
+
     <!-- Latest compiled and minified CSS -->
     <link
       rel="stylesheet"
@@ -426,20 +409,25 @@
       <main>
         <div class="container">
           <div class="page-content">
-            <!-- This block is used in staging only. Comment out before depoloying -->
             <!--
-          <h1 class="big-heading">
-            Your are signin in to a test website.
-          </h1>
-          <p class="text">
-            Our contributors and staff use this staging instance to test features before shipping them to the main
-            production platform. We welcome you to try out the features before everyone else and help us
-            <a href="https://www.freecodecamp.org/forum/c/contributors" target="blank" rel="noopener noreferrer">
-              by giving us feedback on our forum.</a>
-          </p>
-          -->
-            <!-- This block is used in staging only. Comment out before depoloying -->
-
+              
+              
+              Use the block BELOW in staging only. Comment out before depoloying 
+            
+            
+            -->
+            <!--
+            <h1 class="big-heading">
+              Warning: Your are signing in to a test website.
+            </h1>
+            -->
+            <!--
+              
+              
+              Use the block ABOVE in staging only. Comment out before depoloying 
+            
+            
+            -->
             <div class="social-signin-methods">
               <button id="login-google" class="btn btn-primary">
                 Continue with Google
@@ -496,14 +484,31 @@
             </div>
             <!-- End passwordless-email -->
 
-            <!-- This block is used in staging only. Comment out before depoloying -->
+            <!-- 
+              
+              
+              Use the block BELOW in staging only. Comment out before depoloying 
+            
+            
+            -->
             <!--
-          <h3 class="text">
-            Your progress may not persist the next time you visit this
-            application. Follow this link to <a href="https://www.freecodecamp.org"> go the main website</a> instead.
-          </h3>
-          -->
-            <!-- This block is used in staging only. Comment out before depoloying -->
+            <h3 class="text">
+              Your progress may not persist the next time you visit this
+              application.
+            </h3>
+            <h3 class="text">
+              Follow this link to
+              <a href="https://www.freecodecamp.org"> go the main website</a>
+              instead.
+            </h3>
+            -->
+            <!-- 
+              
+              
+              Use the block ABOVE in staging only. Comment out before depoloying 
+            
+            
+            -->
 
             <p class="text">
               freeCodeCamp is free and your account is private by default. We
@@ -1498,6 +1503,20 @@
         return regex.test(email);
       }
 
+      function displayErrorMessage(errMsg) {
+        $('.form-group').addClass('has-error');
+        if ($('.form-group .help-block').length === 0) {
+          $('.form-group').append(
+            '<div class="help-block">' + errMsg + '</div>'
+          );
+        }
+      }
+
+      function removeErrorMessage() {
+        $('.form-group').removeClass('has-error');
+        $('.help-block').remove();
+      }
+
       function passwordlessSendEmail() {
         var email = $('#email').val();
         if (isEmail(email)) {
@@ -1510,10 +1529,9 @@
             function (err, res) {
               if (err) {
                 var generalErrorMessage =
-                  'Oops...something is not right. Please go back to freeCodeCamp.org and try again.';
+                  'Something went wrong, error details are in your browser console.';
                 displayErrorMessage(generalErrorMessage);
-
-                console.log('err', err);
+                return console.error(err);
               }
 
               console.log('res', res);
@@ -1548,26 +1566,13 @@
               var OTPErrorMessage =
                 'The code you entered is not valid. Please check the last OTP you received and try again.';
               displayErrorMessage(OTPErrorMessage);
+              console.log('err', err);
             } else {
               // Remove error when correct OTP code entered
               removeErrorMessage();
             }
           }
         );
-      }
-
-      function displayErrorMessage(errMsg) {
-        $('.form-group').addClass('has-error');
-        if ($('.form-group .help-block').length === 0) {
-          $('.form-group').append(
-            '<div class="help-block">' + errMsg + '</div>'
-          );
-        }
-      }
-
-      function removeErrorMessage() {
-        $('.form-group').removeClass('has-error');
-        $('.help-block').remove();
       }
 
       $('#send-email-btn').on('click', function () {
