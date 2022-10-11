@@ -1,682 +1,1626 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Sign in to freeCodeCamp.org | freeCodeCamp.org</title>
+    <link href="https://www.freecodecamp.org" rel="canonical" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
 
-<head>
-  <meta charset="utf-8">
-  <meta content="IE=edge" http-equiv="X-UA-Compatible">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>
-    Sign in to freeCodeCamp.org | freeCodeCamp.org
-  </title>
-  <link href="https://www.freecodecamp.org" rel="canonical">
-  <meta content="IE=edge" http-equiv="X-UA-Compatible">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta content="UvVP23KA-xdDS6KUpR3-1CEMMmNRev5bXUFo" name="csrf-token">
-  <meta content="https://cdn.freecodecamp.org/platform/universal/fcc_meta_1920x1080-indigo.png" name="og:image" />
-  <meta content="freeCodeCamp Auth0 Page" name="twitter:title" />
-  <meta content="Authentication landing page for freecodecamp.org" name="og:description" />
-  <meta content="#FFFFFF" name="msapplication-TileColor" />
-  <meta content="https://cdn.freecodecamp.org/universal/favicons/browserconfig.xml" rel="msapplication-config" />
-  <link href="https://cdn.freecodecamp.org/universal/favicons/android-chrome-192x192.png" rel="android-chrome"
-    sizes="192x192" />
-  <link href="https://cdn.freecodecamp.org/universal/favicons/android-chrome-384x384.png" rel="android-chrome"
-    sizes="384x384" />
-  <link href="https://cdn.freecodecamp.org/universal/favicons/site.webmanifest" rel="manifest" />
-  <link href="https://cdn.freecodecamp.org/universal/favicons/apple-touch-icon.png" rel="apple-touch-icon"
-    sizes="180x180" />
-  <link href="https://cdn.freecodecamp.org/universal/favicons/favicon-16x16.png" rel="favicon" sizes="16x16" />
-  <link href="https://cdn.freecodecamp.org/universal/favicons/favicon-32x32.png" rel="favicon" sizes="32x32" />
-  <link href="https://cdn.freecodecamp.org/universal/favicons/favicon.ico" rel="icon" />
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Mono:400"
-    crossorigin="anonymous">
+    <meta property="og:site_name" content="freeCodeCamp.org" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="freeCodeCamp.org" />
+    <meta
+      property="og:description"
+      content="Browse thousands of programming tutorials written by experts. Learn Web Development, Data Science, DevOps, Security, and get developer career advice."
+    />
+    <meta property="og:url" content="https://www.freecodecamp.org/news/" />
+    <meta
+      property="og:image"
+      content="https://cdn.freecodecamp.org/platform/universal/fcc_meta_1920X1080-indigo.png"
+    />
+    <meta
+      property="article:publisher"
+      content="https://www.facebook.com/freecodecamp"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="freeCodeCamp.org" />
+    <meta
+      name="twitter:description"
+      content="Browse thousands of programming tutorials written by experts. Learn Web Development, Data Science, DevOps, Security, and get developer career advice."
+    />
+    <meta name="twitter:url" content="https://www.freecodecamp.org/news/" />
+    <meta
+      name="twitter:image"
+      content="https://cdn.freecodecamp.org/platform/universal/fcc_meta_1920X1080-indigo.png"
+    />
+    <meta name="twitter:site" content="@freecodecamp" />
+    <meta property="og:image:width" content="1920" />
+    <meta property="og:image:height" content="1080" />
 
-  <style>
-    :root {
-      --dark-blue: #002ead;
-      --theme-color: #0a0a23;
-      --gray-90: #0a0a23;
-      --gray-85: #1b1b32;
-      --gray-80: #2a2a40;
-      --gray-75: #3b3b4f;
-      --gray-15: #d0d0d5;
-      --gray-10: #dfdfe2;
-      --gray-05: #eeeef0;
-      --gray-00: #fff;
-      --error: #a94442;
-      --header-height: 38px;
-    }
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Mono:400"
+      crossorigin="anonymous"
+    />
 
-    html {
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box;
-      font-family: sans-serif;
-      font-size: 18px;
-    }
+    <style>
+      :root {
+        --dark-blue: #002ead;
+        --theme-color: #0a0a23;
+        --gray-90: #0a0a23;
+        --gray-85: #1b1b32;
+        --gray-80: #2a2a40;
+        --gray-75: #3b3b4f;
+        --gray-15: #d0d0d5;
+        --gray-10: #dfdfe2;
+        --gray-05: #eeeef0;
+        --gray-00: #fff;
+        --error: #a94442;
+        --header-height: 38px;
+      }
 
-    *,
-    *:before,
-    *:after {
-      -webkit-box-sizing: inherit;
-      -moz-box-sizing: inherit;
-      box-sizing: inherit;
-    }
+      html {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        font-family: sans-serif;
+        font-size: 18px;
+      }
 
-    head {
-      display: none;
-    }
+      *,
+      *:before,
+      *:after {
+        -webkit-box-sizing: inherit;
+        -moz-box-sizing: inherit;
+        box-sizing: inherit;
+      }
 
-    body {
-      font-family: "Lato", Arial;
-      font-size: 18px;
-      line-height: 1.42857143;
-      background-color: var(--gray00);
-      margin: 0;
-      padding: 0;
-      border: 0;
-    }
+      head {
+        display: none;
+      }
 
-    header,
-    nav,
-    main {
-      display: block;
-    }
+      body {
+        font-family: 'Lato', Arial;
+        font-size: 18px;
+        line-height: 1.42857143;
+        background-color: var(--gray00);
+        margin: 0;
+        padding: 0;
+        border: 0;
+      }
 
-    header {
-      top: 0;
-      position: fixed;
-      width: 100%;
-      z-index: 200;
-    }
+      header,
+      nav,
+      main {
+        display: block;
+      }
 
-    .universal-nav {
-      display: flex;
-      display: -ms-flexbox;
-      height: var(--header-height);
-      justify-content: center;
-      align-items: center;
-      font-size: 18px;
-      background: var(--theme-color);
-      position: fixed;
-      color: var(--gray-00);
-      width: 100%;
-    }
+      header {
+        top: 0;
+        position: fixed;
+        width: 100%;
+        z-index: 200;
+      }
 
-    .universal-nav-logo {
-      display: block;
-      width: 210px;
-      height: 24px;
-    }
+      .universal-nav {
+        display: flex;
+        display: -ms-flexbox;
+        height: var(--header-height);
+        justify-content: center;
+        align-items: center;
+        font-size: 18px;
+        background: var(--theme-color);
+        position: fixed;
+        color: var(--gray-00);
+        width: 100%;
+      }
 
-    .default-layout {
-      margin-top: var(--header-height, 0px);
-      background: var(--gray-00);
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-      flex-direction: column;
-      min-height: calc(100vh - var(--header-height, 0px));
-    }
+      .universal-nav-logo {
+        display: block;
+        width: 210px;
+        height: 24px;
+      }
 
-    .container {
-      margin-right: auto;
-      margin-left: auto;
-      padding-left: 15px;
-      padding-right: 15px;
-      padding: 30px 15px 15px;
-    }
+      .default-layout {
+        margin-top: var(--header-height, 0px);
+        background: var(--gray-00);
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        min-height: calc(100vh - var(--header-height, 0px));
+      }
 
-    .row {
-      margin-left: -15px;
-      margin-right: -15px;
-    }
+      .container {
+        margin-right: auto;
+        margin-left: auto;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding: 30px 15px 15px;
+      }
 
-    h1,
-    h3,
-    p {
-      color: var(--gray-85);
-      text-align: center;
-    }
+      .row {
+        margin-left: -15px;
+        margin-right: -15px;
+      }
 
-    h1 {
-      font-size: 1.2rem;
-      margin: 1.2rem 0 1.2rem;
-    }
-
-    h3 {
-      font-size: 1rem;
-      margin: 0 0 1.2rem;
-    }
-
-    p {
-      font-size: 1rem;
-      margin: 0 0 1.2rem;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: underline;
-    }
-
-    a,
-    button {
-      cursor: pointer;
-    }
-
-    main a:hover,
-    main a:focus {
-      text-decoration: none;
-      color: var(--gray-80);
-      background-color: var(--gray-10);
-    }
-
-    .content {
-      margin-top: 30px;
-    }
-
-    .big-heading {
-      font-size: 1.6rem;
-    }
-
-    .text {
-      text-align: left;
-    }
-
-    .separator {
-      text-align: center;
-      border-bottom: 3px solid var(--gray-75);
-      line-height: 0.1em;
-      margin: 1.2rem 0 0;
-      width: 60%;
-    }
-
-    .separator span {
-      background: #fff;
-      color: var(--gray-75);
-      padding: 0 10px;
-    }
-
-    .social-signin-methods,
-    .passwordless-email {
-      margin: 1.2rem 0 1.2rem;
-    }
-
-    .social-signin-methods {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .control-label {
-      display: inline-block;
-      max-width: 100%;
-      margin-bottom: 5px;
-      font-weight: bold;
-      font-size: 18px;
-      text-align: left;
-    }
-
-    .form-control {
-      font-family: 'Roboto Mono', monospace;
-      min-height: 56px;
-      width: 100%;
-      padding: 10px 16px;
-      font-size: 22px;
-      color: var(--gray-85);
-      border-radius: 0px;
-      text-decoration: none;
-      outline: none;
-    }
-
-    .form-group {
-      margin-bottom: 15px;
-      text-align: center;
-    }
-
-    .button-holder {
-      text-align: center;
-    }
-
-    .help-block {
-      margin-top: 5px;
-      text-align: center;
-    }
-
-    .has-error {
-      color: var(--error);
-    }
-
-    .has-error>.form-control {
-      border: 1px solid var(--error);
-    }
-
-    .btn {
-      font-family: 'Roboto Mono', monospace;
-      min-height: 56px;
-      width: 100%;
-      padding: 10px 16px;
-      font-size: 22px;
-      background-color: var(--gray-15);
-      border-width: 3px;
-      border-color: var(--gray-85);
-      color: var(--gray-85);
-      border-radius: 0px;
-      text-decoration: none;
-      outline: none;
-    }
-
-    .btn:not(:last-child) {
-      margin-bottom: 10px;
-    }
-
-    .btn:hover,
-    .btn-primary:hover {
-      border-color: var(--gray-85);
-      background-color: var(--gray-85);
-      color: var(--gray-05);
-    }
-
-    .btn:active,
-    .btn-primary:active {
-      background-color: var(--gray-05);
-    }
-
-    .btn:focus,
-    .btn-primary:focus,
-    .btn-primary.focus {
-      background-color: var(--gray-15);
-      color: var(--gray-85);
-      border-color: var(--gray-85);
-      outline: 5px auto -webkit-focus-ring-color;
-      outline-offset: -2px;
-    }
-
-    .btn:active:hover,
-    .btn-primary:hover,
-    .btn-primary:active:hover,
-    .btn-primary.active:hover,
-    .open>.dropdown-toggle.btn-primary:hover,
-    .btn-primary:active:focus,
-    .btn-primary.active:focus,
-    .open>.dropdown-toggle.btn-primary:focus,
-    .btn-primary:active.focus,
-    .btn-primary.active.focus,
-    .open>.dropdown-toggle.btn-primary.focus {
-      background-color: var(--gray-85);
-      color: var(--gray-05);
-    }
-
-    .btn.disabled,
-    .btn[disabled],
-    fieldset[disabled] .btn,
-    .btn-primary.disabled:hover,
-    .btn-primary[disabled]:hover,
-    fieldset[disabled] .btn-primary:hover,
-    .btn-primary.disabled:focus,
-    .btn-primary[disabled]:focus,
-    fieldset[disabled] .btn-primary:focus,
-    .btn-primary.disabled.focus,
-    .btn-primary[disabled].focus,
-    fieldset[disabled] .btn-primary.focus {
-      cursor: not-allowed;
-      background-color: var(--gray-15);
-      border-color: var(--gray-75);
-      color: var(--gray-75);
-    }
-
-    @media (min-width: 501px) {
-      .big-heading {
-        font-size: 2.5rem;
+      h1,
+      h3,
+      p {
+        color: var(--gray-85);
+        text-align: center;
       }
 
       h1 {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
+        margin: 1.2rem 0 1.2rem;
       }
 
       h3 {
-        font-size: 1.1rem;
+        font-size: 1rem;
+        margin: 0 0 1.2rem;
       }
 
-      .btn,
+      p {
+        font-size: 1rem;
+        margin: 0 0 1.2rem;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: underline;
+      }
+
+      a,
+      button {
+        cursor: pointer;
+      }
+
+      main a:hover,
+      main a:focus {
+        text-decoration: none;
+        color: var(--gray-80);
+        background-color: var(--gray-10);
+      }
+
+      .content {
+        margin-top: 30px;
+      }
+
+      .big-heading {
+        font-size: 1.6rem;
+      }
+
+      .text {
+        text-align: left;
+      }
+
+      .separator {
+        text-align: center;
+        border-bottom: 3px solid var(--gray-75);
+        line-height: 0.1em;
+        margin: 1.2rem 0 0;
+        width: 60%;
+      }
+
+      .separator span {
+        background: #fff;
+        color: var(--gray-75);
+        padding: 0 10px;
+      }
+
+      .social-signin-methods,
+      .passwordless-email {
+        margin: 1.2rem 0 1.2rem;
+      }
+
+      .social-signin-methods {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .control-label {
+        display: inline-block;
+        max-width: 100%;
+        margin-bottom: 5px;
+        font-weight: bold;
+        font-size: 18px;
+        text-align: left;
+      }
+
       .form-control {
-        max-width: 400px;
-      }
-    }
-
-    @media (min-width: 768px) {
-      .container {
-        width: 750px;
-      }
-
-      .page-content {
-        margin-left: 16.66666667%;
-        width: 65.79%;
+        font-family: 'Roboto Mono', monospace;
+        min-height: 56px;
+        width: 100%;
+        padding: 10px 16px;
+        font-size: 22px;
+        color: var(--gray-85);
+        border-radius: 0px;
+        text-decoration: none;
+        outline: none;
       }
 
-      .btn,
-      .form-control {
-        max-width: 600px;
+      .form-group {
+        margin-bottom: 15px;
+        text-align: center;
       }
-    }
 
-    @media (min-width: 992px) {
-
-      .container,
-      .form-control {
-        width: 970px;
+      .button-holder {
+        text-align: center;
       }
-    }
 
-    @media (min-width: 1200px) {
-      .container {
-        width: 1170px;
+      .help-block {
+        margin-top: 5px;
+        text-align: center;
       }
-    }
-  </style>
-</head>
 
-<body>
-  <header>
-    <nav class="site-nav universal-nav">
-      <a href="https://www.freecodecamp.org/">
-        <img alt="freeCodeCamp.org logo" class="universal-nav-logo"
-          src="https://cdn.freecodecamp.org/platform/universal/fcc_primary.svg">
-      </a>
-    </nav>
-  </header>
-  <div class="default-layout">
-    <main>
-      <div class="container">
-        <div class="page-content">
-
-
-
-          <!-- This block is used in staging only. Comment out before depoloying -->
-          <!--
-          <h1 class="big-heading">
-            Your are signin in to a test website.
-          </h1>
-          <p class="text">
-            Our contributors and staff use this staging instance to test features before shipping them to the main
-            production platform. We welcome you to try out the features before everyone else and help us
-            <a href="https://www.freecodecamp.org/forum/c/contributors" target="blank" rel="noopener noreferrer">
-              by giving us feedback on our forum.</a>
-          </p>
-          -->
-          <!-- This block is used in staging only. Comment out before depoloying -->
-
-
-
-          <div class="social-signin-methods">
-            <button id="login-google" class="btn btn-primary">
-              Continue with Google
-            </button>
-            <button id="login-github" class="btn btn-primary">
-              Continue with GitHub
-            </button>
-            <h3 class="separator"><span>or</span></h3>
-          </div>
-          <div class="passwordless-email">
-            <div class=" enter-email">
-              <form novalidate>
-                <div class="form-group">
-                  <input autofocus="" class="form-control" id="email" name="email" oninput="setCustomValidity('')" value
-                    autocomplete="off" placeholder="email" required="" type="email">
-                </div>
-                <div class="button-holder">
-                  <button class="btn btn-primary" id="send-email-btn">
-                    Email me a sign in code</button>
-                </div>
-              </form>
-            </div>
-            <div class="enter-code" style="display: none;">
-              <form>
-                <div class="form-group">
-                  <input autofocus="" class="form-control" id="code" name="code" placeholder="Type the sign in code we emailed you here" value=""
-                    autocomplete="off">
-                </div>
-                <div class="button-holder">
-                  <button class="btn btn-primary" id="send-code-btn">
-                    Submit the sign in code and sign in to freeCodeCamp</button>
-                </div>
-              </form>
-            </div>
-          </div> <!-- End passwordless-email -->
-
-
-
-          <!-- This block is used in staging only. Comment out before depoloying -->
-          <!--
-          <h3 class="text">
-            Your progress may not persist the next time you visit this
-            application. Follow this link to <a href="https://www.freecodecamp.org"> go the main website</a> instead.
-          </h3>
-          -->
-          <!-- This block is used in staging only. Comment out before depoloying -->
-
-
-
-          <p class="text">
-            freeCodeCamp is free and your account is private by default. We use your email address to connect you
-            to your account. By continuing, you indicate that you have read and agree to freeCodeCamp.org's
-            <a href="https://www.freecodecamp.org/terms" target="_blank" rel="noopener noreferrer">Terms of Service </a>
-            and <a href="https://www.freecodecamp.org/privacy" target="_blank" rel="noopener noreferrer">Privacy
-              Policy</a>.
-          </p>
-
-        </div> <!-- End page-content -->
-      </div> <!-- End container -->
-    </main>
-  </div> <!--  End default-layout -->
-  <!--[if IE 8]>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/ie8/0.2.5/ie8.js"></script>
-  <![endif]-->
-  <!--[if lte IE 9]>
-  <script src="https://cdn.auth0.com/js/polyfills/1.0/base64.min.js"></script>
-  <script src="https://cdn.auth0.com/js/polyfills/1.0/es5-shim.min.js"></script>
-  <![endif]-->
-  <!-- Latest compiled and minified JavaScript -->
-  <!-- <script src="https://cdn.freecodecamp.org/login-assets/cash-4-1-5/cash.min.js" crossorigin="anonymous"></script> -->
-
-  <script>
-    /* MIT https://github.com/kenwheeler/cash */
-    (function () {
-      'use strict'; var e = document, g = window, k = e.createElement("div"), l = Array.prototype, m = l.filter, n = l.indexOf, aa = l.map, q = l.push, r = l.reverse, u = l.slice, v = l.some, ba = l.splice, ca = /^#[\w-]*$/, da = /^\.[\w-]*$/, ea = /<.+>/, fa = /^\w+$/; function x(a, b) { void 0 === b && (b = e); return b && 9 === b.nodeType || b && 1 === b.nodeType ? da.test(a) ? b.getElementsByClassName(a.slice(1)) : fa.test(a) ? b.getElementsByTagName(a) : b.querySelectorAll(a) : [] }
-      var y = function () { function a(a, c) { void 0 === c && (c = e); if (a) { if (a instanceof y) return a; var b = a; if (z(a)) { if (b = c instanceof y ? c[0] : c, b = ca.test(a) ? b.getElementById(a.slice(1)) : ea.test(a) ? A(a) : x(a, b), !b) return } else if (B(a)) return this.ready(a); if (b.nodeType || b === g) b = [b]; this.length = b.length; a = 0; for (c = this.length; a < c; a++)this[a] = b[a] } } a.prototype.init = function (b, c) { return new a(b, c) }; return a }(), C = y.prototype.init; C.fn = C.prototype = y.prototype; y.prototype.length = 0; y.prototype.splice = ba;
-      "function" === typeof Symbol && (y.prototype[Symbol.iterator] = Array.prototype[Symbol.iterator]); y.prototype.get = function (a) { return void 0 === a ? u.call(this) : this[0 > a ? a + this.length : a] }; y.prototype.eq = function (a) { return C(this.get(a)) }; y.prototype.first = function () { return this.eq(0) }; y.prototype.last = function () { return this.eq(-1) }; y.prototype.map = function (a) { return C(aa.call(this, function (b, c) { return a.call(b, c, b) })) }; y.prototype.slice = function () { return C(u.apply(this, arguments)) }; var ha = /-([a-z])/g;
-      function ia(a, b) { return b.toUpperCase() } function D(a) { return a.replace(ha, ia) } C.camelCase = D; function E(a, b) { for (var c = 0, d = a.length; c < d && !1 !== b.call(a[c], c, a[c]); c++); } C.each = E; y.prototype.each = function (a) { E(this, a); return this }; y.prototype.removeProp = function (a) { return this.each(function (b, c) { delete c[a] }) }; function F(a) { for (var b = 1; b < arguments.length; b++); b = arguments; for (var c = b.length, d = 2 > c ? 0 : 1; d < c; d++)for (var f in b[d]) a[f] = b[d][f]; return a } y.prototype.extend = function (a) { return F(C.fn, a) };
-      C.extend = F; C.guid = 1; function G(a, b) { var c = a && (a.matches || a.webkitMatchesSelector || a.mozMatchesSelector || a.msMatchesSelector || a.oMatchesSelector); return !!c && c.call(a, b) } C.matches = G; function H(a, b, c) { for (var d = [], f = 0, h = a.length; f < h; f++)for (var p = a[f][b]; null != p;) { d.push(p); if (!c) break; p = p[b] } return d } function I(a) { return !!a && a === a.window } function B(a) { return "function" === typeof a } function z(a) { return "string" === typeof a } function J(a) { return !isNaN(parseFloat(a)) && isFinite(a) } var K = Array.isArray;
-      C.isWindow = I; C.isFunction = B; C.isString = z; C.isNumeric = J; C.isArray = K; y.prototype.prop = function (a, b) { if (a) { if (z(a)) return 2 > arguments.length ? this[0] && this[0][a] : this.each(function (c, f) { f[a] = b }); for (var c in a) this.prop(c, a[c]); return this } }; function L(a) { return z(a) ? function (b, c) { return G(c, a) } : B(a) ? a : a instanceof y ? function (b, c) { return a.is(c) } : function (b, c) { return c === a } } y.prototype.filter = function (a) { if (!a) return C(); var b = L(a); return C(m.call(this, function (a, d) { return b.call(a, d, a) })) };
-      function M(a, b) { return b && a.length ? a.filter(b) : a } var ja = /\S+/g; function N(a) { return z(a) ? a.match(ja) || [] : [] } y.prototype.hasClass = function (a) { return a && v.call(this, function (b) { return b.classList.contains(a) }) }; y.prototype.removeAttr = function (a) { var b = N(a); return b.length ? this.each(function (a, d) { E(b, function (a, b) { d.removeAttribute(b) }) }) : this };
-      y.prototype.attr = function (a, b) { if (a) { if (z(a)) { if (2 > arguments.length) { if (!this[0]) return; var c = this[0].getAttribute(a); return null === c ? void 0 : c } return void 0 === b ? this : null === b ? this.removeAttr(a) : this.each(function (c, f) { f.setAttribute(a, b) }) } for (c in a) this.attr(c, a[c]); return this } }; y.prototype.toggleClass = function (a, b) { var c = N(a), d = void 0 !== b; return c.length ? this.each(function (a, h) { E(c, function (a, c) { d ? b ? h.classList.add(c) : h.classList.remove(c) : h.classList.toggle(c) }) }) : this };
-      y.prototype.addClass = function (a) { return this.toggleClass(a, !0) }; y.prototype.removeClass = function (a) { return arguments.length ? this.toggleClass(a, !1) : this.attr("class", "") }; function O(a) { return 1 < a.length ? m.call(a, function (a, c, d) { return n.call(d, a) === c }) : a } C.unique = O; y.prototype.add = function (a, b) { return C(O(this.get().concat(C(a, b).get()))) }; function P(a, b, c) { if (a && 1 === a.nodeType && b) return a = g.getComputedStyle(a, null), b ? c ? a.getPropertyValue(b) || void 0 : a[b] : a }
-      function Q(a, b) { return parseInt(P(a, b), 10) || 0 } var R = /^--/, S = {}, ka = k.style, la = ["webkit", "moz", "ms", "o"]; function ma(a, b) { void 0 === b && (b = R.test(a)); if (b) return a; if (!S[a]) { b = D(a); var c = "" + b.charAt(0).toUpperCase() + b.slice(1); b = (b + " " + la.join(c + " ") + c).split(" "); E(b, function (b, c) { if (c in ka) return S[a] = c, !1 }) } return S[a] } C.prefixedProp = ma; var na = { animationIterationCount: !0, columnCount: !0, flexGrow: !0, flexShrink: !0, fontWeight: !0, lineHeight: !0, opacity: !0, order: !0, orphans: !0, widows: !0, zIndex: !0 };
-      function oa(a, b, c) { void 0 === c && (c = R.test(a)); return c || na[a] || !J(b) ? b : b + "px" } y.prototype.css = function (a, b) { if (z(a)) { var c = R.test(a); a = ma(a, c); if (2 > arguments.length) return this[0] && P(this[0], a, c); if (!a) return this; b = oa(a, b, c); return this.each(function (d, h) { h && 1 === h.nodeType && (c ? h.style.setProperty(a, b) : h.style[a] = b) }) } for (var d in a) this.css(d, a[d]); return this }; function pa(a, b) { a = a.dataset ? a.dataset[b] || a.dataset[D(b)] : a.getAttribute("data-" + b); try { return JSON.parse(a) } catch (c) { } return a } var qa = /^data-(.+)/;
-      y.prototype.data = function (a, b) { var c = this; if (!a) { if (!this[0]) return; var d = {}; E(this[0].attributes, function (a, b) { (a = b.name.match(qa)) && (d[a[1]] = c.data(a[1])) }); return d } if (z(a)) return void 0 === b ? this[0] && pa(this[0], a) : this.each(function (c, d) { c = b; try { c = JSON.stringify(c) } catch (w) { } d.dataset ? d.dataset[D(a)] = c : d.setAttribute("data-" + a, c) }); for (var f in a) this.data(f, a[f]); return this };
-      function ra(a, b) { return Q(a, "border" + (b ? "Left" : "Top") + "Width") + Q(a, "padding" + (b ? "Left" : "Top")) + Q(a, "padding" + (b ? "Right" : "Bottom")) + Q(a, "border" + (b ? "Right" : "Bottom") + "Width") } E(["Width", "Height"], function (a, b) { y.prototype["inner" + b] = function () { if (this[0]) return I(this[0]) ? g["inner" + b] : this[0]["client" + b] } });
-      E(["width", "height"], function (a, b) { y.prototype[b] = function (c) { if (!this[0]) return void 0 === c ? void 0 : this; if (!arguments.length) return I(this[0]) ? this[0][D("outer-" + b)] : this[0].getBoundingClientRect()[b] - ra(this[0], !a); var d = parseInt(c, 10); return this.each(function (c, h) { h && 1 === h.nodeType && (c = P(h, "boxSizing"), h.style[b] = oa(b, d + ("border-box" === c ? ra(h, !a) : 0))) }) } });
-      E(["Width", "Height"], function (a, b) { y.prototype["outer" + b] = function (c) { if (this[0]) return I(this[0]) ? g["outer" + b] : this[0]["offset" + b] + (c ? Q(this[0], "margin" + (a ? "Top" : "Left")) + Q(this[0], "margin" + (a ? "Bottom" : "Right")) : 0) } }); var T = {};
-      y.prototype.toggle = function (a) { return this.each(function (b, c) { if (void 0 !== a ? a : "none" === P(c, "display")) { if (c.style.display = "", "none" === P(c, "display")) { b = c.style; c = c.tagName; if (T[c]) c = T[c]; else { var d = e.createElement(c); e.body.appendChild(d); var f = P(d, "display"); e.body.removeChild(d); c = T[c] = "none" !== f ? f : "block" } b.display = c } } else c.style.display = "none" }) }; y.prototype.hide = function () { return this.toggle(!1) }; y.prototype.show = function () { return this.toggle(!0) };
-      function sa(a, b) { return !b || !v.call(b, function (b) { return 0 > a.indexOf(b) }) } var U = { focus: "focusin", blur: "focusout" }, ta = { mouseenter: "mouseover", mouseleave: "mouseout" }, ua = /^(?:mouse|pointer|contextmenu|drag|drop|click|dblclick)/i; function va(a, b, c, d, f) { f.guid = f.guid || C.guid++; var h = a.__cashEvents = a.__cashEvents || {}; h[b] = h[b] || []; h[b].push([c, d, f]); a.addEventListener(b, f) } function V(a) { a = a.split("."); return [a[0], a.slice(1).sort()] }
-      function W(a, b, c, d, f) { var h = a.__cashEvents = a.__cashEvents || {}; if (b) h[b] && (h[b] = h[b].filter(function (h) { var p = h[0], ya = h[1]; h = h[2]; if (f && h.guid !== f.guid || !sa(p, c) || d && d !== ya) return !0; a.removeEventListener(b, h) })); else { for (b in h) W(a, b, c, d, f); delete a.__cashEvents } } y.prototype.off = function (a, b, c) { var d = this; void 0 === a ? this.each(function (a, b) { return W(b) }) : (B(b) && (c = b, b = ""), E(N(a), function (a, h) { a = V(ta[h] || U[h] || h); var f = a[0], w = a[1]; d.each(function (a, d) { return W(d, f, w, b, c) }) })); return this };
-      y.prototype.on = function (a, b, c, d) {
-        var f = this; if (!z(a)) { for (var h in a) this.on(h, b, a[h]); return this } B(b) && (c = b, b = ""); E(N(a), function (a, h) {
-          a = V(ta[h] || U[h] || h); var p = a[0], w = a[1]; f.each(function (a, h) {
-            a = function za(a) {
-              if (!a.namespace || sa(w, a.namespace.split("."))) {
-                var f = h; if (b) { for (var t = a.target; !G(t, b);) { if (t === h) return; t = t.parentNode; if (!t) return } f = t; a.__delegate = !0 } a.__delegate && Object.defineProperty(a, "currentTarget", { configurable: !0, get: function () { return f } }); t = c.call(f, a, a.data); d && W(h, p, w, b, za);
-                !1 === t && (a.preventDefault(), a.stopPropagation())
-              }
-            }; a.guid = c.guid = c.guid || C.guid++; va(h, p, w, b, a)
-          })
-        }); return this
-      }; y.prototype.one = function (a, b, c) { return this.on(a, b, c, !0) }; y.prototype.ready = function (a) { function b() { return a(C) } "loading" !== e.readyState ? setTimeout(b) : e.addEventListener("DOMContentLoaded", b); return this };
-      y.prototype.trigger = function (a, b) { if (z(a)) { var c = V(a); a = c[0]; c = c[1]; var d = ua.test(a) ? "MouseEvents" : "HTMLEvents"; var f = e.createEvent(d); f.initEvent(a, !0, !0); f.namespace = c.join(".") } else f = a; f.data = b; var h = f.type in U; return this.each(function (a, b) { if (h && B(b[f.type])) b[f.type](); else b.dispatchEvent(f) }) }; function wa(a) { return a.multiple && a.options ? H(m.call(a.options, function (a) { return a.selected && !a.disabled && !a.parentNode.disabled }), "value") : a.value || "" }
-      var xa = /%20/g, Aa = /file|reset|submit|button|image/i, Ba = /radio|checkbox/i; y.prototype.serialize = function () { var a = ""; this.each(function (b, c) { E(c.elements || [c], function (b, c) { c.disabled || !c.name || "FIELDSET" === c.tagName || Aa.test(c.type) || Ba.test(c.type) && !c.checked || (b = wa(c), void 0 !== b && (b = K(b) ? b : [b], E(b, function (b, d) { b = a; d = "&" + encodeURIComponent(c.name) + "=" + encodeURIComponent(d).replace(xa, "+"); a = b + d }))) }) }); return a.substr(1) };
-      y.prototype.val = function (a) { return void 0 === a ? this[0] && wa(this[0]) : this.each(function (b, c) { if ("SELECT" === c.tagName) { var d = K(a) ? a : null === a ? [] : [a]; E(c.options, function (a, b) { b.selected = 0 <= d.indexOf(b.value) }) } else c.value = null === a ? "" : a }) }; y.prototype.clone = function () { return this.map(function (a, b) { return b.cloneNode(!0) }) }; y.prototype.detach = function () { return this.each(function (a, b) { b.parentNode && b.parentNode.removeChild(b) }) }; var Ca = /^\s*<(\w+)[^>]*>/, Da = /^\s*<(\w+)\s*\/?>(?:<\/\1>)?\s*$/, X;
-      function A(a) { if (!X) { var b = e.createElement("table"), c = e.createElement("tr"); X = { "*": k, tr: e.createElement("tbody"), td: c, th: c, thead: b, tbody: b, tfoot: b } } if (!z(a)) return []; if (Da.test(a)) return [e.createElement(RegExp.$1)]; b = Ca.test(a) && RegExp.$1; b = X[b] || X["*"]; b.innerHTML = a; return C(b.childNodes).detach().get() } C.parseHTML = A; y.prototype.empty = function () { return this.each(function (a, b) { for (; b.firstChild;)b.removeChild(b.firstChild) }) };
-      y.prototype.html = function (a) { return void 0 === a ? this[0] && this[0].innerHTML : this.each(function (b, c) { c.innerHTML = a }) }; y.prototype.remove = function () { return this.detach().off() }; y.prototype.text = function (a) { return void 0 === a ? this[0] ? this[0].textContent : "" : this.each(function (b, c) { c.textContent = a }) }; y.prototype.unwrap = function () { this.parent().each(function (a, b) { a = C(b); a.replaceWith(a.children()) }); return this }; var Ea = e.documentElement;
-      y.prototype.offset = function () { var a = this[0]; if (a) return a = a.getBoundingClientRect(), { top: a.top + g.pageYOffset - Ea.clientTop, left: a.left + g.pageXOffset - Ea.clientLeft } }; y.prototype.offsetParent = function () { return C(this[0] && this[0].offsetParent) }; y.prototype.position = function () { var a = this[0]; if (a) return { left: a.offsetLeft, top: a.offsetTop } }; y.prototype.children = function (a) { var b = []; this.each(function (a, d) { q.apply(b, d.children) }); return M(C(O(b)), a) };
-      y.prototype.contents = function () { var a = []; this.each(function (b, c) { q.apply(a, "IFRAME" === c.tagName ? [c.contentDocument] : c.childNodes) }); return C(O(a)) }; y.prototype.find = function (a) { for (var b = [], c = 0, d = this.length; c < d; c++) { var f = x(a, this[c]); f.length && q.apply(b, f) } return C(O(b)) }; var Fa = /^$|^module$|\/(?:java|ecma)script/i, Ga = /^\s*<!(?:\[CDATA\[|--)|(?:\]\]|--)>\s*$/g;
-      function Y(a) { a = C(a); a.filter("script").add(a.find("script")).each(function (a, c) { !c.src && Fa.test(c.type) && c.ownerDocument.documentElement.contains(c) && eval(c.textContent.replace(Ga, "")) }) } function Z(a, b, c) { E(a, function (a, f) { E(b, function (b, d) { b = a ? d.cloneNode(!0) : d; c ? f.insertBefore(b, c && f.firstChild) : f.appendChild(b); Y(b) }) }) } y.prototype.append = function () { var a = this; E(arguments, function (b, c) { Z(a, C(c)) }); return this }; y.prototype.appendTo = function (a) { Z(C(a), this); return this };
-      y.prototype.insertAfter = function (a) { var b = this; C(a).each(function (a, d) { var c = d.parentNode; c && b.each(function (b, f) { b = a ? f.cloneNode(!0) : f; c.insertBefore(b, d.nextSibling); Y(b) }) }); return this }; y.prototype.after = function () { var a = this; E(r.apply(arguments), function (b, c) { r.apply(C(c).slice()).insertAfter(a) }); return this }; y.prototype.insertBefore = function (a) { var b = this; C(a).each(function (a, d) { var c = d.parentNode; c && b.each(function (b, f) { b = a ? f.cloneNode(!0) : f; c.insertBefore(b, d); Y(b) }) }); return this };
-      y.prototype.before = function () { var a = this; E(arguments, function (b, c) { C(c).insertBefore(a) }); return this }; y.prototype.prepend = function () { var a = this; E(arguments, function (b, c) { Z(a, C(c), !0) }); return this }; y.prototype.prependTo = function (a) { Z(C(a), r.apply(this.slice()), !0); return this }; y.prototype.replaceWith = function (a) { return this.before(a).remove() }; y.prototype.replaceAll = function (a) { C(a).replaceWith(this); return this };
-      y.prototype.wrapAll = function (a) { if (this[0]) { a = C(a); this.first().before(a); for (a = a[0]; a.children.length;)a = a.firstElementChild; this.appendTo(a) } return this }; y.prototype.wrap = function (a) { return this.each(function (b, c) { var d = C(a)[0]; C(c).wrapAll(b ? d.cloneNode(!0) : d) }) }; y.prototype.wrapInner = function (a) { return this.each(function (b, c) { b = C(c); c = b.contents(); c.length ? c.wrapAll(a) : b.append(a) }) };
-      y.prototype.has = function (a) { var b = z(a) ? function (b, d) { return !!x(a, d).length } : function (b, d) { return d.contains(a) }; return this.filter(b) }; y.prototype.is = function (a) { if (!a || !this[0]) return !1; var b = L(a), c = !1; this.each(function (a, f) { c = b.call(f, a, f); return !c }); return c }; y.prototype.next = function (a, b) { return M(C(O(H(this, "nextElementSibling", b))), a) }; y.prototype.nextAll = function (a) { return this.next(a, !0) };
-      y.prototype.not = function (a) { if (!a || !this[0]) return this; var b = L(a); return this.filter(function (a, d) { return !b.call(d, a, d) }) }; y.prototype.parent = function (a) { return M(C(O(H(this, "parentNode"))), a) }; y.prototype.index = function (a) { var b = a ? C(a)[0] : this[0]; a = a ? this : C(b).parent().children(); return n.call(a, b) }; y.prototype.closest = function (a) { if (!a || !this[0]) return C(); var b = this.filter(a); return b.length ? b : this.parent().closest(a) };
-      y.prototype.parents = function (a) { return M(C(O(H(this, "parentElement", !0))), a) }; y.prototype.prev = function (a, b) { return M(C(O(H(this, "previousElementSibling", b))), a) }; y.prototype.prevAll = function (a) { return this.prev(a, !0) }; y.prototype.siblings = function (a) { var b = []; this.each(function (a, d) { q.apply(b, C(d).parent().children(function (a, b) { return b !== d })) }); return M(C(O(b)), a) }; "undefined" !== typeof exports ? module.exports = C : g.cash = g.$ = C;
-    })();
-  </script>
-
-
-  <script src="https://cdn.auth0.com/js/auth0/9.11.3/auth0.min.js"></script>
-  <script defer src="https://cdn.auth0.com/js/polyfills/1.0/object-assign.min.js"></script>
-
-  <script>
-    var config, params, webAuth = null;
-
-    $('form').on('submit', function (event) {
-      event.preventDefault();
-    });
-
-    function setupAuth0FromConfig() {
-      config = JSON.parse(
-        decodeURIComponent(escape(window.atob('@@config@@')))
-      );
-
-      params = Object.assign({
-        domain: config.auth0Domain,
-        clientID: config.clientID,
-        redirectUri: config.callbackURL,
-        scope: 'openid email',
-        audience: 'https://' + config.auth0Domain + '/userinfo',
-        responseType: 'code'
-      }, config.internalOptions);
-
-      webAuth = new auth0.WebAuth(params);
-    }
-
-    function isEmail(email) {
-      var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z]{2,})+$/;
-      return regex.test(email);
-    }
-
-    function passwordlessSendEmail() {
-
-      var email = $('#email').val();
-      if (isEmail(email)) {
-        webAuth.passwordlessStart({
-          connection: 'email',
-          send: 'code',
-          email: email
-        }, function (err, res) {
-          if (err) {
-
-            var generalErrorMessage = 'Oops...something is not right. Please go back to freeCodeCamp.org and try again.';
-            displayErrorMessage(generalErrorMessage);
-
-            console.log('err', err);
-          }
-
-          console.log('res', res);
-
-          // Hide email input and any error messages, then show the code entry screen
-          $('.enter-email').hide();
-          removeErrorMessage();
-          $('.enter-code').show();
-
-        });
-
-      } else {
-        // Invalid email entered
-        var emailErrorMessage = 'The email you entered is not valid. Please check and try again.';
-        displayErrorMessage(emailErrorMessage);
+      .has-error {
+        color: var(--error);
       }
-    }
 
-    function passwordlessLogin() {
+      .has-error > .form-control {
+        border: 1px solid var(--error);
+      }
 
-      var email = $('#email').val();
-      var code = $('#code').val();
-      webAuth.passwordlessLogin({
-        connection: 'email',
-        email: email,
-        verificationCode: code
-      }, function (err, res) {
+      .btn {
+        font-family: 'Roboto Mono', monospace;
+        min-height: 56px;
+        width: 100%;
+        padding: 10px 16px;
+        font-size: 22px;
+        background-color: var(--gray-15);
+        border-width: 3px;
+        border-color: var(--gray-85);
+        color: var(--gray-85);
+        border-radius: 0px;
+        text-decoration: none;
+        outline: none;
+      }
 
-        if (err) {
+      .btn:not(:last-child) {
+        margin-bottom: 10px;
+      }
 
-          console.log('error logging-in', err);
+      .btn:hover,
+      .btn-primary:hover {
+        border-color: var(--gray-85);
+        background-color: var(--gray-85);
+        color: var(--gray-05);
+      }
 
-          var OTPErrorMessage = 'The code you entered is not valid. Please check the last OTP you received and try again.';
-          displayErrorMessage(OTPErrorMessage);
-        } else {
-          // Remove error when correct OTP code entered
-          removeErrorMessage();
+      .btn:active,
+      .btn-primary:active {
+        background-color: var(--gray-05);
+      }
+
+      .btn:focus,
+      .btn-primary:focus,
+      .btn-primary.focus {
+        background-color: var(--gray-15);
+        color: var(--gray-85);
+        border-color: var(--gray-85);
+        outline: 5px auto -webkit-focus-ring-color;
+        outline-offset: -2px;
+      }
+
+      .btn:active:hover,
+      .btn-primary:hover,
+      .btn-primary:active:hover,
+      .btn-primary.active:hover,
+      .open > .dropdown-toggle.btn-primary:hover,
+      .btn-primary:active:focus,
+      .btn-primary.active:focus,
+      .open > .dropdown-toggle.btn-primary:focus,
+      .btn-primary:active.focus,
+      .btn-primary.active.focus,
+      .open > .dropdown-toggle.btn-primary.focus {
+        background-color: var(--gray-85);
+        color: var(--gray-05);
+      }
+
+      .btn.disabled,
+      .btn[disabled],
+      fieldset[disabled] .btn,
+      .btn-primary.disabled:hover,
+      .btn-primary[disabled]:hover,
+      fieldset[disabled] .btn-primary:hover,
+      .btn-primary.disabled:focus,
+      .btn-primary[disabled]:focus,
+      fieldset[disabled] .btn-primary:focus,
+      .btn-primary.disabled.focus,
+      .btn-primary[disabled].focus,
+      fieldset[disabled] .btn-primary.focus {
+        cursor: not-allowed;
+        background-color: var(--gray-15);
+        border-color: var(--gray-75);
+        color: var(--gray-75);
+      }
+
+      @media (min-width: 501px) {
+        .big-heading {
+          font-size: 2.5rem;
         }
-      });
-    };
 
-    function displayErrorMessage(errMsg) {
-      $('.form-group').addClass('has-error');
-      if ($('.form-group .help-block').length === 0) {
-        $('.form-group').append(
-          '<div class="help-block">' + errMsg + '</div>'
+        h1 {
+          font-size: 1.5rem;
+        }
+
+        h3 {
+          font-size: 1.1rem;
+        }
+
+        .btn,
+        .form-control {
+          max-width: 400px;
+        }
+      }
+
+      @media (min-width: 768px) {
+        .container {
+          width: 750px;
+        }
+
+        .page-content {
+          margin-left: 16.66666667%;
+          width: 65.79%;
+        }
+
+        .btn,
+        .form-control {
+          max-width: 600px;
+        }
+      }
+
+      @media (min-width: 992px) {
+        .container,
+        .form-control {
+          width: 970px;
+        }
+      }
+
+      @media (min-width: 1200px) {
+        .container {
+          width: 1170px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <nav class="site-nav universal-nav">
+        <a href="https://www.freecodecamp.org/">
+          <img
+            alt="freeCodeCamp.org logo"
+            class="universal-nav-logo"
+            src="https://cdn.freecodecamp.org/platform/universal/fcc_primary.svg"
+          />
+        </a>
+      </nav>
+    </header>
+    <div class="default-layout">
+      <main>
+        <div class="container">
+          <div class="page-content">
+            <!--
+              
+              
+              Use the block BELOW in staging only. Comment out before depoloying 
+            
+            
+            -->
+            <!--
+            <h1 class="big-heading">
+              Warning: Your are signing in to a test website.
+            </h1>
+            -->
+            <!--
+              
+              
+              Use the block ABOVE in staging only. Comment out before depoloying 
+            
+            
+            -->
+            <div class="social-signin-methods">
+              <button id="login-google" class="btn btn-primary">
+                Continue with Google
+              </button>
+              <button id="login-github" class="btn btn-primary">
+                Continue with GitHub
+              </button>
+              <h3 class="separator"><span>or</span></h3>
+            </div>
+            <div class="passwordless-email">
+              <div class="enter-email">
+                <form novalidate>
+                  <div class="form-group">
+                    <input
+                      autofocus=""
+                      class="form-control"
+                      id="email"
+                      name="email"
+                      oninput="setCustomValidity('')"
+                      value
+                      autocomplete="off"
+                      placeholder="email"
+                      required=""
+                      type="email"
+                    />
+                  </div>
+                  <div class="button-holder">
+                    <button class="btn btn-primary" id="send-email-btn">
+                      Email me a sign in code
+                    </button>
+                  </div>
+                </form>
+              </div>
+              <div class="enter-code" style="display: none">
+                <form>
+                  <div class="form-group">
+                    <input
+                      autofocus=""
+                      class="form-control"
+                      id="code"
+                      name="code"
+                      placeholder="Type the sign in code we emailed you here"
+                      value=""
+                      autocomplete="off"
+                    />
+                  </div>
+                  <div class="button-holder">
+                    <button class="btn btn-primary" id="send-code-btn">
+                      Submit the sign in code and sign in to freeCodeCamp
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <!-- End passwordless-email -->
+
+            <!-- 
+              
+              
+              Use the block BELOW in staging only. Comment out before depoloying 
+            
+            
+            -->
+            <!--
+            <h3 class="text">
+              Your progress may not persist the next time you visit this
+              application.
+            </h3>
+            <h3 class="text">
+              Follow this link to
+              <a href="https://www.freecodecamp.org"> go the main website</a>
+              instead.
+            </h3>
+            -->
+            <!-- 
+              
+              
+              Use the block ABOVE in staging only. Comment out before depoloying 
+            
+            
+            -->
+
+            <p class="text">
+              freeCodeCamp is free and your account is private by default. We
+              use your email address to connect you to your account. By
+              continuing, you indicate that you have read and agree to
+              freeCodeCamp.org's
+              <a
+                href="https://www.freecodecamp.org/terms"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Terms of Service
+              </a>
+              and
+              <a
+                href="https://www.freecodecamp.org/privacy"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Privacy Policy</a
+              >.
+            </p>
+          </div>
+          <!-- End page-content -->
+        </div>
+        <!-- End container -->
+      </main>
+    </div>
+    <!--  End default-layout -->
+    <!--[if IE 8]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/ie8/0.2.5/ie8.js"></script>
+    <![endif]-->
+    <!--[if lte IE 9]>
+      <script src="https://cdn.auth0.com/js/polyfills/1.0/base64.min.js"></script>
+      <script src="https://cdn.auth0.com/js/polyfills/1.0/es5-shim.min.js"></script>
+    <![endif]-->
+    <!-- Latest compiled and minified JavaScript -->
+    <!-- <script src="https://cdn.freecodecamp.org/login-assets/cash-4-1-5/cash.min.js" crossorigin="anonymous"></script> -->
+
+    <script>
+      /* MIT https://github.com/kenwheeler/cash */
+      (function () {
+        'use strict';
+        var e = document,
+          g = window,
+          k = e.createElement('div'),
+          l = Array.prototype,
+          m = l.filter,
+          n = l.indexOf,
+          aa = l.map,
+          q = l.push,
+          r = l.reverse,
+          u = l.slice,
+          v = l.some,
+          ba = l.splice,
+          ca = /^#[\w-]*$/,
+          da = /^\.[\w-]*$/,
+          ea = /<.+>/,
+          fa = /^\w+$/;
+        function x(a, b) {
+          void 0 === b && (b = e);
+          return (b && 9 === b.nodeType) || (b && 1 === b.nodeType)
+            ? da.test(a)
+              ? b.getElementsByClassName(a.slice(1))
+              : fa.test(a)
+              ? b.getElementsByTagName(a)
+              : b.querySelectorAll(a)
+            : [];
+        }
+        var y = (function () {
+            function a(a, c) {
+              void 0 === c && (c = e);
+              if (a) {
+                if (a instanceof y) return a;
+                var b = a;
+                if (z(a)) {
+                  if (
+                    ((b = c instanceof y ? c[0] : c),
+                    (b = ca.test(a)
+                      ? b.getElementById(a.slice(1))
+                      : ea.test(a)
+                      ? A(a)
+                      : x(a, b)),
+                    !b)
+                  )
+                    return;
+                } else if (B(a)) return this.ready(a);
+                if (b.nodeType || b === g) b = [b];
+                this.length = b.length;
+                a = 0;
+                for (c = this.length; a < c; a++) this[a] = b[a];
+              }
+            }
+            a.prototype.init = function (b, c) {
+              return new a(b, c);
+            };
+            return a;
+          })(),
+          C = y.prototype.init;
+        C.fn = C.prototype = y.prototype;
+        y.prototype.length = 0;
+        y.prototype.splice = ba;
+        'function' === typeof Symbol &&
+          (y.prototype[Symbol.iterator] = Array.prototype[Symbol.iterator]);
+        y.prototype.get = function (a) {
+          return void 0 === a
+            ? u.call(this)
+            : this[0 > a ? a + this.length : a];
+        };
+        y.prototype.eq = function (a) {
+          return C(this.get(a));
+        };
+        y.prototype.first = function () {
+          return this.eq(0);
+        };
+        y.prototype.last = function () {
+          return this.eq(-1);
+        };
+        y.prototype.map = function (a) {
+          return C(
+            aa.call(this, function (b, c) {
+              return a.call(b, c, b);
+            })
+          );
+        };
+        y.prototype.slice = function () {
+          return C(u.apply(this, arguments));
+        };
+        var ha = /-([a-z])/g;
+        function ia(a, b) {
+          return b.toUpperCase();
+        }
+        function D(a) {
+          return a.replace(ha, ia);
+        }
+        C.camelCase = D;
+        function E(a, b) {
+          for (
+            var c = 0, d = a.length;
+            c < d && !1 !== b.call(a[c], c, a[c]);
+            c++
+          );
+        }
+        C.each = E;
+        y.prototype.each = function (a) {
+          E(this, a);
+          return this;
+        };
+        y.prototype.removeProp = function (a) {
+          return this.each(function (b, c) {
+            delete c[a];
+          });
+        };
+        function F(a) {
+          for (var b = 1; b < arguments.length; b++);
+          b = arguments;
+          for (var c = b.length, d = 2 > c ? 0 : 1; d < c; d++)
+            for (var f in b[d]) a[f] = b[d][f];
+          return a;
+        }
+        y.prototype.extend = function (a) {
+          return F(C.fn, a);
+        };
+        C.extend = F;
+        C.guid = 1;
+        function G(a, b) {
+          var c =
+            a &&
+            (a.matches ||
+              a.webkitMatchesSelector ||
+              a.mozMatchesSelector ||
+              a.msMatchesSelector ||
+              a.oMatchesSelector);
+          return !!c && c.call(a, b);
+        }
+        C.matches = G;
+        function H(a, b, c) {
+          for (var d = [], f = 0, h = a.length; f < h; f++)
+            for (var p = a[f][b]; null != p; ) {
+              d.push(p);
+              if (!c) break;
+              p = p[b];
+            }
+          return d;
+        }
+        function I(a) {
+          return !!a && a === a.window;
+        }
+        function B(a) {
+          return 'function' === typeof a;
+        }
+        function z(a) {
+          return 'string' === typeof a;
+        }
+        function J(a) {
+          return !isNaN(parseFloat(a)) && isFinite(a);
+        }
+        var K = Array.isArray;
+        C.isWindow = I;
+        C.isFunction = B;
+        C.isString = z;
+        C.isNumeric = J;
+        C.isArray = K;
+        y.prototype.prop = function (a, b) {
+          if (a) {
+            if (z(a))
+              return 2 > arguments.length
+                ? this[0] && this[0][a]
+                : this.each(function (c, f) {
+                    f[a] = b;
+                  });
+            for (var c in a) this.prop(c, a[c]);
+            return this;
+          }
+        };
+        function L(a) {
+          return z(a)
+            ? function (b, c) {
+                return G(c, a);
+              }
+            : B(a)
+            ? a
+            : a instanceof y
+            ? function (b, c) {
+                return a.is(c);
+              }
+            : function (b, c) {
+                return c === a;
+              };
+        }
+        y.prototype.filter = function (a) {
+          if (!a) return C();
+          var b = L(a);
+          return C(
+            m.call(this, function (a, d) {
+              return b.call(a, d, a);
+            })
+          );
+        };
+        function M(a, b) {
+          return b && a.length ? a.filter(b) : a;
+        }
+        var ja = /\S+/g;
+        function N(a) {
+          return z(a) ? a.match(ja) || [] : [];
+        }
+        y.prototype.hasClass = function (a) {
+          return (
+            a &&
+            v.call(this, function (b) {
+              return b.classList.contains(a);
+            })
+          );
+        };
+        y.prototype.removeAttr = function (a) {
+          var b = N(a);
+          return b.length
+            ? this.each(function (a, d) {
+                E(b, function (a, b) {
+                  d.removeAttribute(b);
+                });
+              })
+            : this;
+        };
+        y.prototype.attr = function (a, b) {
+          if (a) {
+            if (z(a)) {
+              if (2 > arguments.length) {
+                if (!this[0]) return;
+                var c = this[0].getAttribute(a);
+                return null === c ? void 0 : c;
+              }
+              return void 0 === b
+                ? this
+                : null === b
+                ? this.removeAttr(a)
+                : this.each(function (c, f) {
+                    f.setAttribute(a, b);
+                  });
+            }
+            for (c in a) this.attr(c, a[c]);
+            return this;
+          }
+        };
+        y.prototype.toggleClass = function (a, b) {
+          var c = N(a),
+            d = void 0 !== b;
+          return c.length
+            ? this.each(function (a, h) {
+                E(c, function (a, c) {
+                  d
+                    ? b
+                      ? h.classList.add(c)
+                      : h.classList.remove(c)
+                    : h.classList.toggle(c);
+                });
+              })
+            : this;
+        };
+        y.prototype.addClass = function (a) {
+          return this.toggleClass(a, !0);
+        };
+        y.prototype.removeClass = function (a) {
+          return arguments.length
+            ? this.toggleClass(a, !1)
+            : this.attr('class', '');
+        };
+        function O(a) {
+          return 1 < a.length
+            ? m.call(a, function (a, c, d) {
+                return n.call(d, a) === c;
+              })
+            : a;
+        }
+        C.unique = O;
+        y.prototype.add = function (a, b) {
+          return C(O(this.get().concat(C(a, b).get())));
+        };
+        function P(a, b, c) {
+          if (a && 1 === a.nodeType && b)
+            return (
+              (a = g.getComputedStyle(a, null)),
+              b ? (c ? a.getPropertyValue(b) || void 0 : a[b]) : a
+            );
+        }
+        function Q(a, b) {
+          return parseInt(P(a, b), 10) || 0;
+        }
+        var R = /^--/,
+          S = {},
+          ka = k.style,
+          la = ['webkit', 'moz', 'ms', 'o'];
+        function ma(a, b) {
+          void 0 === b && (b = R.test(a));
+          if (b) return a;
+          if (!S[a]) {
+            b = D(a);
+            var c = '' + b.charAt(0).toUpperCase() + b.slice(1);
+            b = (b + ' ' + la.join(c + ' ') + c).split(' ');
+            E(b, function (b, c) {
+              if (c in ka) return (S[a] = c), !1;
+            });
+          }
+          return S[a];
+        }
+        C.prefixedProp = ma;
+        var na = {
+          animationIterationCount: !0,
+          columnCount: !0,
+          flexGrow: !0,
+          flexShrink: !0,
+          fontWeight: !0,
+          lineHeight: !0,
+          opacity: !0,
+          order: !0,
+          orphans: !0,
+          widows: !0,
+          zIndex: !0
+        };
+        function oa(a, b, c) {
+          void 0 === c && (c = R.test(a));
+          return c || na[a] || !J(b) ? b : b + 'px';
+        }
+        y.prototype.css = function (a, b) {
+          if (z(a)) {
+            var c = R.test(a);
+            a = ma(a, c);
+            if (2 > arguments.length) return this[0] && P(this[0], a, c);
+            if (!a) return this;
+            b = oa(a, b, c);
+            return this.each(function (d, h) {
+              h &&
+                1 === h.nodeType &&
+                (c ? h.style.setProperty(a, b) : (h.style[a] = b));
+            });
+          }
+          for (var d in a) this.css(d, a[d]);
+          return this;
+        };
+        function pa(a, b) {
+          a = a.dataset
+            ? a.dataset[b] || a.dataset[D(b)]
+            : a.getAttribute('data-' + b);
+          try {
+            return JSON.parse(a);
+          } catch (c) {}
+          return a;
+        }
+        var qa = /^data-(.+)/;
+        y.prototype.data = function (a, b) {
+          var c = this;
+          if (!a) {
+            if (!this[0]) return;
+            var d = {};
+            E(this[0].attributes, function (a, b) {
+              (a = b.name.match(qa)) && (d[a[1]] = c.data(a[1]));
+            });
+            return d;
+          }
+          if (z(a))
+            return void 0 === b
+              ? this[0] && pa(this[0], a)
+              : this.each(function (c, d) {
+                  c = b;
+                  try {
+                    c = JSON.stringify(c);
+                  } catch (w) {}
+                  d.dataset
+                    ? (d.dataset[D(a)] = c)
+                    : d.setAttribute('data-' + a, c);
+                });
+          for (var f in a) this.data(f, a[f]);
+          return this;
+        };
+        function ra(a, b) {
+          return (
+            Q(a, 'border' + (b ? 'Left' : 'Top') + 'Width') +
+            Q(a, 'padding' + (b ? 'Left' : 'Top')) +
+            Q(a, 'padding' + (b ? 'Right' : 'Bottom')) +
+            Q(a, 'border' + (b ? 'Right' : 'Bottom') + 'Width')
+          );
+        }
+        E(['Width', 'Height'], function (a, b) {
+          y.prototype['inner' + b] = function () {
+            if (this[0])
+              return I(this[0]) ? g['inner' + b] : this[0]['client' + b];
+          };
+        });
+        E(['width', 'height'], function (a, b) {
+          y.prototype[b] = function (c) {
+            if (!this[0]) return void 0 === c ? void 0 : this;
+            if (!arguments.length)
+              return I(this[0])
+                ? this[0][D('outer-' + b)]
+                : this[0].getBoundingClientRect()[b] - ra(this[0], !a);
+            var d = parseInt(c, 10);
+            return this.each(function (c, h) {
+              h &&
+                1 === h.nodeType &&
+                ((c = P(h, 'boxSizing')),
+                (h.style[b] = oa(b, d + ('border-box' === c ? ra(h, !a) : 0))));
+            });
+          };
+        });
+        E(['Width', 'Height'], function (a, b) {
+          y.prototype['outer' + b] = function (c) {
+            if (this[0])
+              return I(this[0])
+                ? g['outer' + b]
+                : this[0]['offset' + b] +
+                    (c
+                      ? Q(this[0], 'margin' + (a ? 'Top' : 'Left')) +
+                        Q(this[0], 'margin' + (a ? 'Bottom' : 'Right'))
+                      : 0);
+          };
+        });
+        var T = {};
+        y.prototype.toggle = function (a) {
+          return this.each(function (b, c) {
+            if (void 0 !== a ? a : 'none' === P(c, 'display')) {
+              if (((c.style.display = ''), 'none' === P(c, 'display'))) {
+                b = c.style;
+                c = c.tagName;
+                if (T[c]) c = T[c];
+                else {
+                  var d = e.createElement(c);
+                  e.body.appendChild(d);
+                  var f = P(d, 'display');
+                  e.body.removeChild(d);
+                  c = T[c] = 'none' !== f ? f : 'block';
+                }
+                b.display = c;
+              }
+            } else c.style.display = 'none';
+          });
+        };
+        y.prototype.hide = function () {
+          return this.toggle(!1);
+        };
+        y.prototype.show = function () {
+          return this.toggle(!0);
+        };
+        function sa(a, b) {
+          return (
+            !b ||
+            !v.call(b, function (b) {
+              return 0 > a.indexOf(b);
+            })
+          );
+        }
+        var U = { focus: 'focusin', blur: 'focusout' },
+          ta = { mouseenter: 'mouseover', mouseleave: 'mouseout' },
+          ua = /^(?:mouse|pointer|contextmenu|drag|drop|click|dblclick)/i;
+        function va(a, b, c, d, f) {
+          f.guid = f.guid || C.guid++;
+          var h = (a.__cashEvents = a.__cashEvents || {});
+          h[b] = h[b] || [];
+          h[b].push([c, d, f]);
+          a.addEventListener(b, f);
+        }
+        function V(a) {
+          a = a.split('.');
+          return [a[0], a.slice(1).sort()];
+        }
+        function W(a, b, c, d, f) {
+          var h = (a.__cashEvents = a.__cashEvents || {});
+          if (b)
+            h[b] &&
+              (h[b] = h[b].filter(function (h) {
+                var p = h[0],
+                  ya = h[1];
+                h = h[2];
+                if ((f && h.guid !== f.guid) || !sa(p, c) || (d && d !== ya))
+                  return !0;
+                a.removeEventListener(b, h);
+              }));
+          else {
+            for (b in h) W(a, b, c, d, f);
+            delete a.__cashEvents;
+          }
+        }
+        y.prototype.off = function (a, b, c) {
+          var d = this;
+          void 0 === a
+            ? this.each(function (a, b) {
+                return W(b);
+              })
+            : (B(b) && ((c = b), (b = '')),
+              E(N(a), function (a, h) {
+                a = V(ta[h] || U[h] || h);
+                var f = a[0],
+                  w = a[1];
+                d.each(function (a, d) {
+                  return W(d, f, w, b, c);
+                });
+              }));
+          return this;
+        };
+        y.prototype.on = function (a, b, c, d) {
+          var f = this;
+          if (!z(a)) {
+            for (var h in a) this.on(h, b, a[h]);
+            return this;
+          }
+          B(b) && ((c = b), (b = ''));
+          E(N(a), function (a, h) {
+            a = V(ta[h] || U[h] || h);
+            var p = a[0],
+              w = a[1];
+            f.each(function (a, h) {
+              a = function za(a) {
+                if (!a.namespace || sa(w, a.namespace.split('.'))) {
+                  var f = h;
+                  if (b) {
+                    for (var t = a.target; !G(t, b); ) {
+                      if (t === h) return;
+                      t = t.parentNode;
+                      if (!t) return;
+                    }
+                    f = t;
+                    a.__delegate = !0;
+                  }
+                  a.__delegate &&
+                    Object.defineProperty(a, 'currentTarget', {
+                      configurable: !0,
+                      get: function () {
+                        return f;
+                      }
+                    });
+                  t = c.call(f, a, a.data);
+                  d && W(h, p, w, b, za);
+                  !1 === t && (a.preventDefault(), a.stopPropagation());
+                }
+              };
+              a.guid = c.guid = c.guid || C.guid++;
+              va(h, p, w, b, a);
+            });
+          });
+          return this;
+        };
+        y.prototype.one = function (a, b, c) {
+          return this.on(a, b, c, !0);
+        };
+        y.prototype.ready = function (a) {
+          function b() {
+            return a(C);
+          }
+          'loading' !== e.readyState
+            ? setTimeout(b)
+            : e.addEventListener('DOMContentLoaded', b);
+          return this;
+        };
+        y.prototype.trigger = function (a, b) {
+          if (z(a)) {
+            var c = V(a);
+            a = c[0];
+            c = c[1];
+            var d = ua.test(a) ? 'MouseEvents' : 'HTMLEvents';
+            var f = e.createEvent(d);
+            f.initEvent(a, !0, !0);
+            f.namespace = c.join('.');
+          } else f = a;
+          f.data = b;
+          var h = f.type in U;
+          return this.each(function (a, b) {
+            if (h && B(b[f.type])) b[f.type]();
+            else b.dispatchEvent(f);
+          });
+        };
+        function wa(a) {
+          return a.multiple && a.options
+            ? H(
+                m.call(a.options, function (a) {
+                  return a.selected && !a.disabled && !a.parentNode.disabled;
+                }),
+                'value'
+              )
+            : a.value || '';
+        }
+        var xa = /%20/g,
+          Aa = /file|reset|submit|button|image/i,
+          Ba = /radio|checkbox/i;
+        y.prototype.serialize = function () {
+          var a = '';
+          this.each(function (b, c) {
+            E(c.elements || [c], function (b, c) {
+              c.disabled ||
+                !c.name ||
+                'FIELDSET' === c.tagName ||
+                Aa.test(c.type) ||
+                (Ba.test(c.type) && !c.checked) ||
+                ((b = wa(c)),
+                void 0 !== b &&
+                  ((b = K(b) ? b : [b]),
+                  E(b, function (b, d) {
+                    b = a;
+                    d =
+                      '&' +
+                      encodeURIComponent(c.name) +
+                      '=' +
+                      encodeURIComponent(d).replace(xa, '+');
+                    a = b + d;
+                  })));
+            });
+          });
+          return a.substr(1);
+        };
+        y.prototype.val = function (a) {
+          return void 0 === a
+            ? this[0] && wa(this[0])
+            : this.each(function (b, c) {
+                if ('SELECT' === c.tagName) {
+                  var d = K(a) ? a : null === a ? [] : [a];
+                  E(c.options, function (a, b) {
+                    b.selected = 0 <= d.indexOf(b.value);
+                  });
+                } else c.value = null === a ? '' : a;
+              });
+        };
+        y.prototype.clone = function () {
+          return this.map(function (a, b) {
+            return b.cloneNode(!0);
+          });
+        };
+        y.prototype.detach = function () {
+          return this.each(function (a, b) {
+            b.parentNode && b.parentNode.removeChild(b);
+          });
+        };
+        var Ca = /^\s*<(\w+)[^>]*>/,
+          Da = /^\s*<(\w+)\s*\/?>(?:<\/\1>)?\s*$/,
+          X;
+        function A(a) {
+          if (!X) {
+            var b = e.createElement('table'),
+              c = e.createElement('tr');
+            X = {
+              '*': k,
+              tr: e.createElement('tbody'),
+              td: c,
+              th: c,
+              thead: b,
+              tbody: b,
+              tfoot: b
+            };
+          }
+          if (!z(a)) return [];
+          if (Da.test(a)) return [e.createElement(RegExp.$1)];
+          b = Ca.test(a) && RegExp.$1;
+          b = X[b] || X['*'];
+          b.innerHTML = a;
+          return C(b.childNodes).detach().get();
+        }
+        C.parseHTML = A;
+        y.prototype.empty = function () {
+          return this.each(function (a, b) {
+            for (; b.firstChild; ) b.removeChild(b.firstChild);
+          });
+        };
+        y.prototype.html = function (a) {
+          return void 0 === a
+            ? this[0] && this[0].innerHTML
+            : this.each(function (b, c) {
+                c.innerHTML = a;
+              });
+        };
+        y.prototype.remove = function () {
+          return this.detach().off();
+        };
+        y.prototype.text = function (a) {
+          return void 0 === a
+            ? this[0]
+              ? this[0].textContent
+              : ''
+            : this.each(function (b, c) {
+                c.textContent = a;
+              });
+        };
+        y.prototype.unwrap = function () {
+          this.parent().each(function (a, b) {
+            a = C(b);
+            a.replaceWith(a.children());
+          });
+          return this;
+        };
+        var Ea = e.documentElement;
+        y.prototype.offset = function () {
+          var a = this[0];
+          if (a)
+            return (
+              (a = a.getBoundingClientRect()),
+              {
+                top: a.top + g.pageYOffset - Ea.clientTop,
+                left: a.left + g.pageXOffset - Ea.clientLeft
+              }
+            );
+        };
+        y.prototype.offsetParent = function () {
+          return C(this[0] && this[0].offsetParent);
+        };
+        y.prototype.position = function () {
+          var a = this[0];
+          if (a) return { left: a.offsetLeft, top: a.offsetTop };
+        };
+        y.prototype.children = function (a) {
+          var b = [];
+          this.each(function (a, d) {
+            q.apply(b, d.children);
+          });
+          return M(C(O(b)), a);
+        };
+        y.prototype.contents = function () {
+          var a = [];
+          this.each(function (b, c) {
+            q.apply(
+              a,
+              'IFRAME' === c.tagName ? [c.contentDocument] : c.childNodes
+            );
+          });
+          return C(O(a));
+        };
+        y.prototype.find = function (a) {
+          for (var b = [], c = 0, d = this.length; c < d; c++) {
+            var f = x(a, this[c]);
+            f.length && q.apply(b, f);
+          }
+          return C(O(b));
+        };
+        var Fa = /^$|^module$|\/(?:java|ecma)script/i,
+          Ga = /^\s*<!(?:\[CDATA\[|--)|(?:\]\]|--)>\s*$/g;
+        function Y(a) {
+          a = C(a);
+          a.filter('script')
+            .add(a.find('script'))
+            .each(function (a, c) {
+              !c.src &&
+                Fa.test(c.type) &&
+                c.ownerDocument.documentElement.contains(c) &&
+                eval(c.textContent.replace(Ga, ''));
+            });
+        }
+        function Z(a, b, c) {
+          E(a, function (a, f) {
+            E(b, function (b, d) {
+              b = a ? d.cloneNode(!0) : d;
+              c ? f.insertBefore(b, c && f.firstChild) : f.appendChild(b);
+              Y(b);
+            });
+          });
+        }
+        y.prototype.append = function () {
+          var a = this;
+          E(arguments, function (b, c) {
+            Z(a, C(c));
+          });
+          return this;
+        };
+        y.prototype.appendTo = function (a) {
+          Z(C(a), this);
+          return this;
+        };
+        y.prototype.insertAfter = function (a) {
+          var b = this;
+          C(a).each(function (a, d) {
+            var c = d.parentNode;
+            c &&
+              b.each(function (b, f) {
+                b = a ? f.cloneNode(!0) : f;
+                c.insertBefore(b, d.nextSibling);
+                Y(b);
+              });
+          });
+          return this;
+        };
+        y.prototype.after = function () {
+          var a = this;
+          E(r.apply(arguments), function (b, c) {
+            r.apply(C(c).slice()).insertAfter(a);
+          });
+          return this;
+        };
+        y.prototype.insertBefore = function (a) {
+          var b = this;
+          C(a).each(function (a, d) {
+            var c = d.parentNode;
+            c &&
+              b.each(function (b, f) {
+                b = a ? f.cloneNode(!0) : f;
+                c.insertBefore(b, d);
+                Y(b);
+              });
+          });
+          return this;
+        };
+        y.prototype.before = function () {
+          var a = this;
+          E(arguments, function (b, c) {
+            C(c).insertBefore(a);
+          });
+          return this;
+        };
+        y.prototype.prepend = function () {
+          var a = this;
+          E(arguments, function (b, c) {
+            Z(a, C(c), !0);
+          });
+          return this;
+        };
+        y.prototype.prependTo = function (a) {
+          Z(C(a), r.apply(this.slice()), !0);
+          return this;
+        };
+        y.prototype.replaceWith = function (a) {
+          return this.before(a).remove();
+        };
+        y.prototype.replaceAll = function (a) {
+          C(a).replaceWith(this);
+          return this;
+        };
+        y.prototype.wrapAll = function (a) {
+          if (this[0]) {
+            a = C(a);
+            this.first().before(a);
+            for (a = a[0]; a.children.length; ) a = a.firstElementChild;
+            this.appendTo(a);
+          }
+          return this;
+        };
+        y.prototype.wrap = function (a) {
+          return this.each(function (b, c) {
+            var d = C(a)[0];
+            C(c).wrapAll(b ? d.cloneNode(!0) : d);
+          });
+        };
+        y.prototype.wrapInner = function (a) {
+          return this.each(function (b, c) {
+            b = C(c);
+            c = b.contents();
+            c.length ? c.wrapAll(a) : b.append(a);
+          });
+        };
+        y.prototype.has = function (a) {
+          var b = z(a)
+            ? function (b, d) {
+                return !!x(a, d).length;
+              }
+            : function (b, d) {
+                return d.contains(a);
+              };
+          return this.filter(b);
+        };
+        y.prototype.is = function (a) {
+          if (!a || !this[0]) return !1;
+          var b = L(a),
+            c = !1;
+          this.each(function (a, f) {
+            c = b.call(f, a, f);
+            return !c;
+          });
+          return c;
+        };
+        y.prototype.next = function (a, b) {
+          return M(C(O(H(this, 'nextElementSibling', b))), a);
+        };
+        y.prototype.nextAll = function (a) {
+          return this.next(a, !0);
+        };
+        y.prototype.not = function (a) {
+          if (!a || !this[0]) return this;
+          var b = L(a);
+          return this.filter(function (a, d) {
+            return !b.call(d, a, d);
+          });
+        };
+        y.prototype.parent = function (a) {
+          return M(C(O(H(this, 'parentNode'))), a);
+        };
+        y.prototype.index = function (a) {
+          var b = a ? C(a)[0] : this[0];
+          a = a ? this : C(b).parent().children();
+          return n.call(a, b);
+        };
+        y.prototype.closest = function (a) {
+          if (!a || !this[0]) return C();
+          var b = this.filter(a);
+          return b.length ? b : this.parent().closest(a);
+        };
+        y.prototype.parents = function (a) {
+          return M(C(O(H(this, 'parentElement', !0))), a);
+        };
+        y.prototype.prev = function (a, b) {
+          return M(C(O(H(this, 'previousElementSibling', b))), a);
+        };
+        y.prototype.prevAll = function (a) {
+          return this.prev(a, !0);
+        };
+        y.prototype.siblings = function (a) {
+          var b = [];
+          this.each(function (a, d) {
+            q.apply(
+              b,
+              C(d)
+                .parent()
+                .children(function (a, b) {
+                  return b !== d;
+                })
+            );
+          });
+          return M(C(O(b)), a);
+        };
+        'undefined' !== typeof exports
+          ? (module.exports = C)
+          : (g.cash = g.$ = C);
+      })();
+    </script>
+
+    <script src="https://cdn.auth0.com/js/auth0/9.11.3/auth0.min.js"></script>
+    <script
+      defer
+      src="https://cdn.auth0.com/js/polyfills/1.0/object-assign.min.js"
+    ></script>
+
+    <script>
+      var config,
+        params,
+        webAuth = null;
+
+      $('form').on('submit', function (event) {
+        event.preventDefault();
+      });
+
+      function setupAuth0FromConfig() {
+        config = JSON.parse(
+          decodeURIComponent(escape(window.atob('@@config@@')))
+        );
+
+        params = Object.assign(
+          {
+            domain: config.auth0Domain,
+            clientID: config.clientID,
+            redirectUri: config.callbackURL,
+            scope: 'openid email',
+            audience: 'https://' + config.auth0Domain + '/userinfo',
+            responseType: 'code'
+          },
+          config.internalOptions
+        );
+
+        webAuth = new auth0.WebAuth(params);
+      }
+
+      function isEmail(email) {
+        var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z]{2,})+$/;
+        return regex.test(email);
+      }
+
+      function displayErrorMessage(errMsg) {
+        $('.form-group').addClass('has-error');
+        if ($('.form-group .help-block').length === 0) {
+          $('.form-group').append(
+            '<div class="help-block">' + errMsg + '</div>'
+          );
+        }
+      }
+
+      function removeErrorMessage() {
+        $('.form-group').removeClass('has-error');
+        $('.help-block').remove();
+      }
+
+      function passwordlessSendEmail() {
+        var email = $('#email').val();
+        if (isEmail(email)) {
+          webAuth.passwordlessStart(
+            {
+              connection: 'email',
+              send: 'code',
+              email: email
+            },
+            function (err, res) {
+              if (err) {
+                var generalErrorMessage =
+                  'Something went wrong, error details are in your browser console.';
+                displayErrorMessage(generalErrorMessage);
+                return console.error(err);
+              }
+
+              console.log('res', res);
+
+              // Hide email input and any error messages, then show the code entry screen
+              $('.enter-email').hide();
+              removeErrorMessage();
+              $('.enter-code').show();
+            }
+          );
+        } else {
+          // Invalid email entered
+          var emailErrorMessage =
+            'The email you entered is not valid. Please check and try again.';
+          displayErrorMessage(emailErrorMessage);
+        }
+      }
+
+      function passwordlessLogin() {
+        var email = $('#email').val();
+        var code = $('#code').val();
+        webAuth.passwordlessLogin(
+          {
+            connection: 'email',
+            email: email,
+            verificationCode: code
+          },
+          function (err, res) {
+            if (err) {
+              console.log('error logging-in', err);
+
+              var OTPErrorMessage =
+                'The code you entered is not valid. Please check the last OTP you received and try again.';
+              displayErrorMessage(OTPErrorMessage);
+              console.log('err', err);
+            } else {
+              // Remove error when correct OTP code entered
+              removeErrorMessage();
+            }
+          }
         );
       }
-    }
 
-    function removeErrorMessage() {
-      $('.form-group').removeClass('has-error');
-      $('.help-block').remove();
-    }
-
-    $('#send-email-btn').on('click', function () {
-      setupAuth0FromConfig();
-      passwordlessSendEmail();
-    });
-
-    $('#send-code-btn').on('click', function () {
-      passwordlessLogin();
-    });
-
-    $('#login-google').on('click', function () {
-      setupAuth0FromConfig();
-      webAuth.authorize({
-        connection: 'google-oauth2'
+      $('#send-email-btn').on('click', function () {
+        setupAuth0FromConfig();
+        passwordlessSendEmail();
       });
-    });
 
-    $('#login-github').on('click', function () {
-      setupAuth0FromConfig();
-      webAuth.authorize({
-        connection: 'github'
+      $('#send-code-btn').on('click', function () {
+        passwordlessLogin();
       });
-    });
-  </script>
-  <script>
-    (function (i, s, o, g, r, a, m) {
-      i['GoogleAnalyticsObject'] = r;
-      i[r] = i[r] || function () {
-        (i[r].q = i[r].q || []).push(arguments)
-      }
-        ,
-        i[r].l = 1 * new Date();
-      a = s.createElement(o),
-        m = s.getElementsByTagName(o)[0];
-      a.async = 1;
-      a.src = g;
-      m.parentNode.insertBefore(a, m)
-    }
-    )(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-    ga('create', 'UA-55446531-1', 'auto');
-    ga('require', 'displayfeatures');
-    ga('send', 'pageview');
-  </script>
-</body>
 
+      $('#login-google').on('click', function () {
+        setupAuth0FromConfig();
+        webAuth.authorize({
+          connection: 'google-oauth2'
+        });
+      });
+
+      $('#login-github').on('click', function () {
+        setupAuth0FromConfig();
+        webAuth.authorize({
+          connection: 'github'
+        });
+      });
+    </script>
+    <script>
+      (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        (i[r] =
+          i[r] ||
+          function () {
+            (i[r].q = i[r].q || []).push(arguments);
+          }),
+          (i[r].l = 1 * new Date());
+        (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m);
+      })(
+        window,
+        document,
+        'script',
+        '//www.google-analytics.com/analytics.js',
+        'ga'
+      );
+      ga('create', 'UA-55446531-1', 'auto');
+      ga('require', 'displayfeatures');
+      ga('send', 'pageview');
+    </script>
+  </body>
 </html>
