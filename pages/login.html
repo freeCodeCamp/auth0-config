@@ -1518,11 +1518,16 @@
       }
 
       function removeErrorMessage() {
+        console.log('clearing error message');
         $('.form-group').removeClass('has-error');
         $('.help-block').remove();
       }
 
       function passwordlessSendEmail() {
+        
+        // Reset any error messages
+        removeErrorMessage();
+        
         var email = $('#email').val();
         if (isEmail(email)) {
           webAuth.passwordlessStart(
@@ -1556,8 +1561,13 @@
       }
 
       function passwordlessLogin() {
+        
+        // Reset any error messages
+        removeErrorMessage();
+
         var email = $('#email').val();
         var code = $('#code').val();
+        
         webAuth.passwordlessLogin(
           {
             connection: 'email',
