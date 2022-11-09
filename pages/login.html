@@ -197,10 +197,6 @@
         font-size: 1.6rem;
       }
 
-      .text {
-        text-align: left;
-      }
-
       .separator {
         text-align: center;
         border-bottom: 3px solid var(--gray-75);
@@ -220,10 +216,16 @@
         margin: 1.2rem 0 1.2rem;
       }
 
-      .social-signin-methods {
+      .social-signin-methods, .legal {
         display: flex;
         flex-direction: column;
         align-items: center;
+      }
+
+      .legal > p {
+        margin: 1.2rem 0 0;
+        text-align: center;
+        max-width: 600px;
       }
 
       .control-label {
@@ -510,25 +512,28 @@
             
             -->
 
-            <p class="text">
-              freeCodeCamp is free and your account is private by default. We
-              use your email address to connect you to your account. By
-              continuing, you indicate that you have read and agree to
-              freeCodeCamp.org's
-              <a
-                href="https://www.freecodecamp.org/terms"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Terms of Service
-              </a>
-              and
-              <a
-                href="https://www.freecodecamp.org/privacy"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Privacy Policy</a
-              >.
-            </p>
+            <div class="legal">
+              <p>
+                freeCodeCamp is free and your account is private by default. We
+                use your email address to connect you to your account. 
+              </p>
+              <p>By continuing, you indicate that you have read and agree to
+                freeCodeCamp.org's
+                <a
+                  href="https://www.freecodecamp.org/terms"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Terms of Service
+                </a>
+                and
+                <a
+                  href="https://www.freecodecamp.org/privacy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Privacy Policy</a
+                >.
+              </p>
+            </div>
           </div>
           <!-- End page-content -->
         </div>
@@ -1513,11 +1518,16 @@
       }
 
       function removeErrorMessage() {
+        console.log('clearing error message');
         $('.form-group').removeClass('has-error');
         $('.help-block').remove();
       }
 
       function passwordlessSendEmail() {
+        
+        // Reset any error messages
+        removeErrorMessage();
+        
         var email = $('#email').val();
         if (isEmail(email)) {
           webAuth.passwordlessStart(
@@ -1551,8 +1561,13 @@
       }
 
       function passwordlessLogin() {
+        
+        // Reset any error messages
+        removeErrorMessage();
+
         var email = $('#email').val();
         var code = $('#code').val();
+        
         webAuth.passwordlessLogin(
           {
             connection: 'email',
