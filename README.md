@@ -4,19 +4,21 @@
 
 ## Contributing
 
+The code changes are deployed on the hosted login page (Universal logic (classic)) by Auth0. You will need your own test tenant with all the providers configured to test things like logic, validations etc. properly.
 
-1. Start a local web-server
+However you can check and update some things styles etc. by testing the html file like so:
 
-   ```console
-    npx serve
-   ```
+Run
 
-2. Visit [`http://localhost:5000`](http://localhost:5000) to see the pages, for example the dev-tenant login page is available at: [`http://localhost:5000/dev-tenant/pages/login`](http://localhost:5000/dev-tenant/pages/login)
+```
+npx serve
+```
 
-License
--------
+And then visit `http://localhost:3000/pages/login`
 
-Copyright (c) 2021 freeCodeCamp.
+## License
+
+Copyright (c) 2022 freeCodeCamp.
 
 The content of this repository bound by the following LICENSE(S)
 - The computer software is licensed under the [BSD-3-Clause](./LICENSE.md).
