@@ -6,7 +6,7 @@
 
 The code changes are deployed on the hosted login page (Universal logic (classic)) by Auth0. You will need your own test tenant with all the providers configured to test things like logic, validations etc. properly.
 
-However you can check and update some things styles etc. by testing the html file like so:
+However you can check and update some things like verbiage, styles etc. by testing the html file like so:
 
 Run
 
