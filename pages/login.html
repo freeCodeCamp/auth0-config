@@ -1,525 +1,551 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Sign in to freeCodeCamp.org</title>
-    <link href="https://www.freecodecamp.org" rel="canonical" />
-    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <head>
+        <meta charset="utf-8" />
+        <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <title>Sign in to freeCodeCamp.org</title>
+        <link href="https://www.freecodecamp.org" rel="canonical" />
+        <meta content="IE=edge" http-equiv="X-UA-Compatible" />
 
-    <meta property="og:site_name" content="freeCodeCamp.org" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="freeCodeCamp.org" />
-    <meta
-      property="og:description"
-      content="Browse thousands of programming tutorials written by experts. Learn Web Development, Data Science, DevOps, Security, and get developer career advice."
-    />
-    <meta property="og:url" content="https://www.freecodecamp.org/news/" />
-    <meta
-      property="og:image"
-      content="https://cdn.freecodecamp.org/platform/universal/fcc_meta_1920X1080-indigo.png"
-    />
-    <meta
-      property="article:publisher"
-      content="https://www.facebook.com/freecodecamp"
-    />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="freeCodeCamp.org" />
-    <meta
-      name="twitter:description"
-      content="Browse thousands of programming tutorials written by experts. Learn Web Development, Data Science, DevOps, Security, and get developer career advice."
-    />
-    <meta name="twitter:url" content="https://www.freecodecamp.org/news/" />
-    <meta
-      name="twitter:image"
-      content="https://cdn.freecodecamp.org/platform/universal/fcc_meta_1920X1080-indigo.png"
-    />
-    <meta name="twitter:site" content="@freecodecamp" />
-    <meta property="og:image:width" content="1920" />
-    <meta property="og:image:height" content="1080" />
+        <meta property="og:site_name" content="freeCodeCamp.org" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="freeCodeCamp.org" />
+        <meta
+            property="og:description"
+            content="Browse thousands of programming tutorials written by experts. Learn Web Development, Data Science, DevOps, Security, and get developer career advice."
+        />
+        <meta property="og:url" content="https://www.freecodecamp.org/news/" />
+        <meta
+            property="og:image"
+            content="https://cdn.freecodecamp.org/platform/universal/fcc_meta_1920X1080-indigo.png"
+        />
+        <meta
+            property="article:publisher"
+            content="https://www.facebook.com/freecodecamp"
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="freeCodeCamp.org" />
+        <meta
+            name="twitter:description"
+            content="Browse thousands of programming tutorials written by experts. Learn Web Development, Data Science, DevOps, Security, and get developer career advice."
+        />
+        <meta name="twitter:url" content="https://www.freecodecamp.org/news/" />
+        <meta
+            name="twitter:image"
+            content="https://cdn.freecodecamp.org/platform/universal/fcc_meta_1920X1080-indigo.png"
+        />
+        <meta name="twitter:site" content="@freecodecamp" />
+        <meta property="og:image:width" content="1920" />
+        <meta property="og:image:height" content="1080" />
 
-    <!-- Latest compiled and minified CSS -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Mono:400"
-      crossorigin="anonymous"
-    />
+        <!-- Latest compiled and minified CSS -->
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Mono:400"
+            crossorigin="anonymous"
+        />
 
-    <style>
-      :root {
-        --dark-blue: #002ead;
-        --theme-color: #0a0a23;
-        --gray-90: #0a0a23;
-        --gray-85: #1b1b32;
-        --gray-80: #2a2a40;
-        --gray-75: #3b3b4f;
-        --gray-15: #d0d0d5;
-        --gray-10: #dfdfe2;
-        --gray-05: #eeeef0;
-        --gray-00: #fff;
-        --error: #a94442;
-        --header-height: 38px;
-      }
+        <style>
+            :root {
+                --dark-blue: #002ead;
+                --theme-color: #0a0a23;
+                --gray-90: #0a0a23;
+                --gray-85: #1b1b32;
+                --gray-80: #2a2a40;
+                --gray-75: #3b3b4f;
+                --gray-15: #d0d0d5;
+                --gray-10: #dfdfe2;
+                --gray-05: #eeeef0;
+                --gray-00: #fff;
+                --error: #a94442;
+                --header-height: 38px;
+            }
 
-      html {
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-        font-family: sans-serif;
-        font-size: 18px;
-      }
+            html {
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+                font-family: sans-serif;
+                font-size: 18px;
+            }
 
-      *,
-      *:before,
-      *:after {
-        -webkit-box-sizing: inherit;
-        -moz-box-sizing: inherit;
-        box-sizing: inherit;
-      }
+            *,
+            *:before,
+            *:after {
+                -webkit-box-sizing: inherit;
+                -moz-box-sizing: inherit;
+                box-sizing: inherit;
+            }
 
-      head {
-        display: none;
-      }
+            head {
+                display: none;
+            }
 
-      body {
-        font-family: 'Lato', Arial;
-        font-size: 18px;
-        line-height: 1.42857143;
-        background-color: var(--gray00);
-        margin: 0;
-        padding: 0;
-        border: 0;
-      }
+            body {
+                font-family: 'Lato', Arial;
+                font-size: 18px;
+                line-height: 1.42857143;
+                background-color: var(--gray00);
+                margin: 0;
+                padding: 0;
+                border: 0;
+            }
 
-      header,
-      nav,
-      main {
-        display: block;
-      }
+            header,
+            nav,
+            main {
+                display: block;
+            }
 
-      header {
-        top: 0;
-        position: fixed;
-        width: 100%;
-        z-index: 200;
-      }
+            header {
+                top: 0;
+                position: fixed;
+                width: 100%;
+                z-index: 200;
+            }
 
-      .universal-nav {
-        display: flex;
-        display: -ms-flexbox;
-        height: var(--header-height);
-        justify-content: center;
-        align-items: center;
-        font-size: 18px;
-        background: var(--theme-color);
-        position: fixed;
-        color: var(--gray-00);
-        width: 100%;
-      }
+            .universal-nav {
+                display: flex;
+                display: -ms-flexbox;
+                height: var(--header-height);
+                justify-content: center;
+                align-items: center;
+                font-size: 18px;
+                background: var(--theme-color);
+                position: fixed;
+                color: var(--gray-00);
+                width: 100%;
+            }
 
-      .universal-nav-logo {
-        display: block;
-        width: 210px;
-        height: 24px;
-      }
+            .universal-nav-logo {
+                display: block;
+                width: 210px;
+                height: 24px;
+            }
 
-      .default-layout {
-        margin-top: var(--header-height, 0px);
-        background: var(--gray-00);
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-        flex-direction: column;
-        min-height: calc(100vh - var(--header-height, 0px));
-      }
+            .default-layout {
+                margin-top: var(--header-height, 0px);
+                background: var(--gray-00);
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                flex-direction: column;
+                min-height: calc(100vh - var(--header-height, 0px));
+            }
 
-      .container {
-        margin-right: auto;
-        margin-left: auto;
-        padding-left: 15px;
-        padding-right: 15px;
-        padding: 30px 15px 15px;
-      }
+            .container {
+                margin-right: auto;
+                margin-left: auto;
+                padding-left: 15px;
+                padding-right: 15px;
+                padding: 30px 15px 15px;
+            }
 
-      .row {
-        margin-left: -15px;
-        margin-right: -15px;
-      }
+            .row {
+                margin-left: -15px;
+                margin-right: -15px;
+            }
 
-      h1,
-      h3,
-      p {
-        color: var(--gray-85);
-        text-align: center;
-      }
+            h1,
+            h3,
+            p {
+                color: var(--gray-85);
+                text-align: center;
+            }
 
-      h1 {
-        font-size: 1.2rem;
-        margin: 1.2rem 0 1.2rem;
-      }
+            h1 {
+                font-size: 1.2rem;
+                margin: 1.2rem 0 1.2rem;
+            }
 
-      h3 {
-        font-size: 1rem;
-        margin: 0 0 1.2rem;
-      }
+            h3 {
+                font-size: 1rem;
+                margin: 0 0 1.2rem;
+            }
 
-      p {
-        font-size: 1rem;
-        margin: 0 0 1.2rem;
-      }
+            p {
+                font-size: 1rem;
+                margin: 0 0 1.2rem;
+            }
 
-      a {
-        color: inherit;
-        text-decoration: underline;
-      }
+            a {
+                color: inherit;
+                text-decoration: underline;
+            }
 
-      a,
-      button {
-        cursor: pointer;
-      }
+            a,
+            button {
+                cursor: pointer;
+            }
 
-      main a:hover,
-      main a:focus {
-        text-decoration: none;
-        color: var(--gray-80);
-        background-color: var(--gray-10);
-      }
+            main a:hover,
+            main a:focus {
+                text-decoration: none;
+                color: var(--gray-80);
+                background-color: var(--gray-10);
+            }
 
-      .content {
-        margin-top: 30px;
-      }
+            .content {
+                margin-top: 30px;
+            }
 
-      .big-heading {
-        font-size: 1.6rem;
-      }
+            .big-heading {
+                font-size: 1.6rem;
+            }
 
-      .separator {
-        text-align: center;
-        border-bottom: 3px solid var(--gray-75);
-        line-height: 0.1em;
-        margin: 1.2rem 0 0;
-        width: 60%;
-      }
+            .separator {
+                text-align: center;
+                border-bottom: 3px solid var(--gray-75);
+                line-height: 0.1em;
+                margin: 1.2rem 0 0;
+                width: 60%;
+            }
 
-      .separator span {
-        background: #fff;
-        color: var(--gray-75);
-        padding: 0 10px;
-      }
+            .separator span {
+                background: #fff;
+                color: var(--gray-75);
+                padding: 0 10px;
+            }
 
-      .social-signin-methods,
-      .passwordless-email {
-        margin: 1.2rem 0 1.2rem;
-      }
+            .social-signin-methods,
+            .passwordless-email {
+                margin: 1.2rem 0 1.2rem;
+            }
 
-      .social-signin-methods,
-      .legal {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
+            .social-signin-methods,
+            .legal {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
 
-      .legal > p {
-        margin: 1.2rem 0 0;
-        text-align: center;
-        max-width: 600px;
-      }
+            .legal > p {
+                margin: 1.2rem 0 0;
+                text-align: center;
+                max-width: 600px;
+            }
 
-      .control-label {
-        display: inline-block;
-        max-width: 100%;
-        margin-bottom: 5px;
-        font-weight: bold;
-        font-size: 18px;
-        text-align: left;
-      }
+            .control-label {
+                display: inline-block;
+                max-width: 100%;
+                margin-bottom: 5px;
+                font-weight: bold;
+                font-size: 18px;
+                text-align: left;
+            }
 
-      .form-control {
-        font-family: 'Roboto Mono', monospace;
-        min-height: 56px;
-        width: 100%;
-        padding: 10px 16px;
-        font-size: 22px;
-        color: var(--gray-85);
-        border-radius: 0px;
-        text-decoration: none;
-        outline: none;
-      }
+            .form-control {
+                font-family: 'Roboto Mono', monospace;
+                min-height: 56px;
+                width: 100%;
+                padding: 10px 16px;
+                font-size: 22px;
+                color: var(--gray-85);
+                border-radius: 0px;
+                text-decoration: none;
+                outline: none;
+            }
 
-      .form-group {
-        margin-bottom: 15px;
-        text-align: center;
-      }
+            .form-group {
+                margin-bottom: 15px;
+                text-align: center;
+            }
 
-      .form-group > input[disabled] {
-        cursor: not-allowed;
-        background-color: var(--gray-10);
-        border-color: var(--gray-10);
-        color: var(--gray-75);
-      }
+            .form-group > input[disabled] {
+                cursor: not-allowed;
+                background-color: var(--gray-10);
+                border-color: var(--gray-10);
+                color: var(--gray-75);
+            }
 
-      .button-holder {
-        text-align: center;
-      }
+            .button-holder {
+                text-align: center;
+            }
 
-      .help-block {
-        margin-top: 5px;
-        text-align: center;
-      }
+            .help-block {
+                margin-top: 5px;
+                text-align: center;
+            }
 
-      .has-info {
-        color: var(--dark-blue);
-      }
+            .has-info {
+                color: var(--dark-blue);
+            }
 
-      .has-info > .form-control {
-        border: 1px solid var(--dark-blue);
-      }
+            .has-info > .form-control {
+                border: 1px solid var(--dark-blue);
+            }
 
-      .has-error {
-        color: var(--error);
-      }
+            .has-error {
+                color: var(--error);
+            }
 
-      .has-error > .form-control {
-        border: 1px solid var(--error);
-      }
+            .has-error > .form-control {
+                border: 1px solid var(--error);
+            }
+            .align-center {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .btn {
+                font-family: 'Roboto Mono', monospace;
+                min-height: 56px;
+                width: 100%;
+                padding: 10px 16px;
+                font-size: 22px;
+                background-color: var(--gray-15);
+                border-width: 3px;
+                border-color: var(--gray-85);
+                color: var(--gray-85);
+                border-radius: 0px;
+                text-decoration: none;
+                outline: none;
+            }
 
-      .btn {
-        font-family: 'Roboto Mono', monospace;
-        min-height: 56px;
-        width: 100%;
-        padding: 10px 16px;
-        font-size: 22px;
-        background-color: var(--gray-15);
-        border-width: 3px;
-        border-color: var(--gray-85);
-        color: var(--gray-85);
-        border-radius: 0px;
-        text-decoration: none;
-        outline: none;
-      }
+            .btn:not(:last-child) {
+                margin-bottom: 10px;
+            }
 
-      .btn:not(:last-child) {
-        margin-bottom: 10px;
-      }
+            .btn:hover,
+            .btn-primary:hover {
+                border-color: var(--gray-85);
+                background-color: var(--gray-85);
+                color: var(--gray-05);
+            }
 
-      .btn:hover,
-      .btn-primary:hover {
-        border-color: var(--gray-85);
-        background-color: var(--gray-85);
-        color: var(--gray-05);
-      }
+            .btn:active,
+            .btn-primary:active {
+                background-color: var(--gray-05);
+            }
 
-      .btn:active,
-      .btn-primary:active {
-        background-color: var(--gray-05);
-      }
+            .btn:focus,
+            .btn-primary:focus,
+            .btn-primary.focus {
+                background-color: var(--gray-15);
+                color: var(--gray-85);
+                border-color: var(--gray-85);
+                outline: 5px auto -webkit-focus-ring-color;
+                outline-offset: -2px;
+            }
 
-      .btn:focus,
-      .btn-primary:focus,
-      .btn-primary.focus {
-        background-color: var(--gray-15);
-        color: var(--gray-85);
-        border-color: var(--gray-85);
-        outline: 5px auto -webkit-focus-ring-color;
-        outline-offset: -2px;
-      }
+            .btn:active:hover,
+            .btn-primary:hover,
+            .btn-primary:active:hover,
+            .btn-primary.active:hover,
+            .open > .dropdown-toggle.btn-primary:hover,
+            .btn-primary:active:focus,
+            .btn-primary.active:focus,
+            .open > .dropdown-toggle.btn-primary:focus,
+            .btn-primary:active.focus,
+            .btn-primary.active.focus,
+            .open > .dropdown-toggle.btn-primary.focus {
+                background-color: var(--gray-85);
+                color: var(--gray-05);
+            }
 
-      .btn:active:hover,
-      .btn-primary:hover,
-      .btn-primary:active:hover,
-      .btn-primary.active:hover,
-      .open > .dropdown-toggle.btn-primary:hover,
-      .btn-primary:active:focus,
-      .btn-primary.active:focus,
-      .open > .dropdown-toggle.btn-primary:focus,
-      .btn-primary:active.focus,
-      .btn-primary.active.focus,
-      .open > .dropdown-toggle.btn-primary.focus {
-        background-color: var(--gray-85);
-        color: var(--gray-05);
-      }
+            .btn.disabled,
+            .btn[disabled],
+            fieldset[disabled] .btn,
+            .btn-primary.disabled:hover,
+            .btn-primary[disabled]:hover,
+            fieldset[disabled] .btn-primary:hover,
+            .btn-primary.disabled:focus,
+            .btn-primary[disabled]:focus,
+            fieldset[disabled] .btn-primary:focus,
+            .btn-primary.disabled.focus,
+            .btn-primary[disabled].focus,
+            fieldset[disabled] .btn-primary.focus {
+                cursor: not-allowed;
+                background-color: var(--gray-15);
+                border-color: var(--gray-75);
+                color: var(--gray-75);
+            }
 
-      .btn.disabled,
-      .btn[disabled],
-      fieldset[disabled] .btn,
-      .btn-primary.disabled:hover,
-      .btn-primary[disabled]:hover,
-      fieldset[disabled] .btn-primary:hover,
-      .btn-primary.disabled:focus,
-      .btn-primary[disabled]:focus,
-      fieldset[disabled] .btn-primary:focus,
-      .btn-primary.disabled.focus,
-      .btn-primary[disabled].focus,
-      fieldset[disabled] .btn-primary.focus {
-        cursor: not-allowed;
-        background-color: var(--gray-15);
-        border-color: var(--gray-75);
-        color: var(--gray-75);
-      }
+            @media (min-width: 501px) {
+                .big-heading {
+                    font-size: 2.5rem;
+                }
 
-      @media (min-width: 501px) {
-        .big-heading {
-          font-size: 2.5rem;
-        }
+                h1 {
+                    font-size: 1.5rem;
+                }
 
-        h1 {
-          font-size: 1.5rem;
-        }
+                h3 {
+                    font-size: 1.1rem;
+                }
 
-        h3 {
-          font-size: 1.1rem;
-        }
+                .btn,
+                .form-control {
+                    max-width: 400px;
+                }
+            }
 
-        .btn,
-        .form-control {
-          max-width: 400px;
-        }
-      }
+            @media (min-width: 768px) {
+                .container {
+                    width: 750px;
+                }
 
-      @media (min-width: 768px) {
-        .container {
-          width: 750px;
-        }
+                .page-content {
+                    margin-left: 16.66666667%;
+                    width: 65.79%;
+                }
 
-        .page-content {
-          margin-left: 16.66666667%;
-          width: 65.79%;
-        }
+                .btn,
+                .form-control {
+                    max-width: 600px;
+                }
+            }
 
-        .btn,
-        .form-control {
-          max-width: 600px;
-        }
-      }
+            @media (min-width: 992px) {
+                .container,
+                .form-control {
+                    width: 970px;
+                }
+            }
 
-      @media (min-width: 992px) {
-        .container,
-        .form-control {
-          width: 970px;
-        }
-      }
+            @media (min-width: 1200px) {
+                .container {
+                    width: 1170px;
+                }
+            }
+        </style>
+    </head>
 
-      @media (min-width: 1200px) {
-        .container {
-          width: 1170px;
-        }
-      }
-    </style>
-  </head>
-
-  <body>
-    <header>
-      <nav class="site-nav universal-nav">
-        <a href="https://www.freecodecamp.org/">
-          <img
-            alt="freeCodeCamp.org logo"
-            class="universal-nav-logo"
-            src="https://cdn.freecodecamp.org/platform/universal/fcc_primary.svg"
-          />
-        </a>
-      </nav>
-    </header>
-    <div class="default-layout">
-      <main>
-        <div class="container">
-          <div class="page-content">
-            <!--
+    <body>
+        <header>
+            <nav class="site-nav universal-nav">
+                <a href="https://www.freecodecamp.org/">
+                    <img
+                        alt="freeCodeCamp.org logo"
+                        class="universal-nav-logo"
+                        src="https://cdn.freecodecamp.org/platform/universal/fcc_primary.svg"
+                    />
+                </a>
+            </nav>
+        </header>
+        <div class="default-layout">
+            <main>
+                <div class="container">
+                    <div class="page-content">
+                        <!--
               
               
               Use the block BELOW in staging only. Comment out before depoloying 
             
             
             -->
-            <!--
+                        <!--
             <h1 class="big-heading">
               Warning: Your are signing in to a test website.
             </h1>
             -->
-            <!--
+                        <!--
               
               
               Use the block ABOVE in staging only. Comment out before depoloying 
             
             
             -->
-            <div class="social-signin-methods">
-              <button id="login-google" class="btn btn-primary">
-                Continue with Google
-              </button>
-              <button id="login-github" class="btn btn-primary">
-                Continue with GitHub
-              </button>
-              <h3 class="separator"><span>or</span></h3>
-            </div>
-            <div class="passwordless-email">
-              <div class="enter-email">
-                <form novalidate>
-                  <div class="form-group">
-                    <input
-                      autofocus=""
-                      class="form-control"
-                      id="email"
-                      name="email"
-                      oninput="setCustomValidity('')"
-                      value
-                      autocomplete="off"
-                      placeholder="email"
-                      required=""
-                      type="email"
-                    />
-                  </div>
-                  <div class="button-holder">
-                    <button class="btn btn-primary" id="send-email-btn">
-                      Email me a sign in code
-                    </button>
-                    <button
-                      class="btn btn-primary"
-                      id="confirm-email-btn"
-                      style="display: none"
-                    >
-                      Confirm & email me a sign in code
-                    </button>
-                  </div>
-                </form>
-              </div>
-              <div class="enter-code" style="display: none">
-                <form>
-                  <div class="form-group">
-                    <input
-                      autofocus=""
-                      class="form-control"
-                      id="code"
-                      name="code"
-                      placeholder="Type the sign in code we emailed you"
-                      value=""
-                      autocomplete="off"
-                      inputmode="numeric"
-                      pattern="[0-9]*"
-                      type="text"
-                    />
-                  </div>
-                  <div class="button-holder">
-                    <button class="btn btn-primary" id="send-code-btn">
-                      Submit and sign in to freeCodeCamp
-                    </button>
-                  </div>
-                </form>
-              </div>
-            </div>
-            <!-- End passwordless-email -->
+                        <div class="social-signin-methods">
+                            <button
+                                id="login-google"
+                                class="btn btn-primary align-center"
+                            >
+                                Continue with Google
+                                <img
+                                    src="../icons/icons8-google.svg"
+                                    alt="Google Icon"
+                                    width="40px"
+                                />
+                            </button>
+                            <button
+                                id="login-github"
+                                class="btn btn-primary align-center"
+                            >
+                                Continue with GitHub
+                                <img
+                                    src="../icons/icons8-github.svg"
+                                    alt="GitHub Icon"
+                                    width="40px"
+                                />
+                            </button>
+                            <h3 class="separator"><span>or</span></h3>
+                        </div>
+                        <div class="passwordless-email">
+                            <div class="enter-email">
+                                <form novalidate>
+                                    <div class="form-group">
+                                        <input
+                                            autofocus=""
+                                            class="form-control"
+                                            id="email"
+                                            name="email"
+                                            oninput="setCustomValidity('')"
+                                            value
+                                            autocomplete="off"
+                                            placeholder="email"
+                                            required=""
+                                            type="email"
+                                        />
+                                    </div>
+                                    <div class="button-holder">
+                                        <button
+                                            class="btn btn-primary"
+                                            id="send-email-btn"
+                                        >
+                                            Email me a sign in code
+                                        </button>
+                                        <button
+                                            class="btn btn-primary"
+                                            id="confirm-email-btn"
+                                            style="display: none"
+                                        >
+                                            Confirm & email me a sign in code
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="enter-code" style="display: none">
+                                <form>
+                                    <div class="form-group">
+                                        <input
+                                            autofocus=""
+                                            class="form-control"
+                                            id="code"
+                                            name="code"
+                                            placeholder="Type the sign in code we emailed you"
+                                            value=""
+                                            autocomplete="off"
+                                            inputmode="numeric"
+                                            pattern="[0-9]*"
+                                            type="text"
+                                        />
+                                    </div>
+                                    <div class="button-holder">
+                                        <button
+                                            class="btn btn-primary"
+                                            id="send-code-btn"
+                                        >
+                                            Submit and sign in to freeCodeCamp
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- End passwordless-email -->
 
-            <!-- 
+                        <!-- 
               
               
               Use the block BELOW in staging only. Comment out before depoloying 
             
             
             -->
-            <!--
+                        <!--
             <h3 class="text">
               Your progress may not persist the next time you visit this
               application.
@@ -530,7 +556,7 @@
               instead.
             </h3>
             -->
-            <!-- 
+                        <!-- 
               
               
               Use the block ABOVE in staging only. Comment out before depoloying 
@@ -538,258 +564,265 @@
             
             -->
 
-            <div class="legal">
-              <p>
-                freeCodeCamp is free and your account is private by default. We
-                use your email address to connect you to your account.
-              </p>
-              <p>
-                You must be at least 13 years old to create an account on
-                freeCodeCamp.
-              </p>
-              <p>
-                By continuing, you indicate that you have read and agree to
-                freeCodeCamp.org's
-                <a
-                  href="https://www.freecodecamp.org/terms"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Terms of Service
-                </a>
-                and
-                <a
-                  href="https://www.freecodecamp.org/privacy"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Privacy Policy</a
-                >.
-              </p>
-            </div>
-          </div>
-          <!-- End page-content -->
+                        <div class="legal">
+                            <p>
+                                freeCodeCamp is free and your account is private
+                                by default. We use your email address to connect
+                                you to your account.
+                            </p>
+                            <p>
+                                You must be at least 13 years old to create an
+                                account on freeCodeCamp.
+                            </p>
+                            <p>
+                                By continuing, you indicate that you have read
+                                and agree to freeCodeCamp.org's
+                                <a
+                                    href="https://www.freecodecamp.org/terms"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >Terms of Service
+                                </a>
+                                and
+                                <a
+                                    href="https://www.freecodecamp.org/privacy"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >Privacy Policy</a
+                                >.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- End page-content -->
+                </div>
+                <!-- End container -->
+            </main>
         </div>
-        <!-- End container -->
-      </main>
-    </div>
-    <!--  End default-layout -->
+        <!--  End default-layout -->
 
-    <script src="https://cdn.freecodecamp.org/login-assets/cash.min.js"></script>
-    <script src="https://cdn.freecodecamp.org/login-assets/mailcheck.min.js"></script>
-    <script src="https://cdn.freecodecamp.org/login-assets/auth0.min.js"></script>
+        <script src="https://cdn.freecodecamp.org/login-assets/cash.min.js"></script>
+        <script src="https://cdn.freecodecamp.org/login-assets/mailcheck.min.js"></script>
+        <script src="https://cdn.freecodecamp.org/login-assets/auth0.min.js"></script>
 
-    <script>
-      // Start by disabling event propagation
-      $('form').on('submit', (event) => {
-        event.preventDefault();
-      });
+        <script>
+            // Start by disabling event propagation
+            $('form').on('submit', (event) => {
+                event.preventDefault();
+            });
 
-      // Initialize Auth0
-      let config;
-      let params;
-      let webAuth = null;
-      const setupAuth0FromConfig = () => {
-        config = JSON.parse(
-          decodeURIComponent(escape(window.atob('@@config@@')))
-        );
-        params = Object.assign(
-          {
-            domain: config.auth0Domain,
-            clientID: config.clientID,
-            redirectUri: config.callbackURL,
-            scope: 'openid email',
-            audience: `https://${config.auth0Domain}/userinfo`,
-            responseType: 'code'
-          },
-          config.internalOptions
-        );
-        webAuth = new auth0.WebAuth(params);
-      };
-
-      // Error handling helpers
-      const displayMessage = (errMsg, err = '', errType = 'error') => {
-        if (errType === 'error') {
-          $('.form-group').addClass('has-error');
-        } else {
-          $('.form-group').addClass('has-info');
-        }
-
-        if ($('.form-group .help-block').length === 0) {
-          $('.form-group').append(`<div class="help-block">${errMsg}</div>`);
-        }
-
-        // Set local storage with localStorage.setItem('debug', 'true') to show the error message
-        if (localStorage.getItem('debug') === 'true') {
-          console.log(errType, errMsg, err);
-        }
-      };
-      const removeMessage = () => {
-        $('.form-group').removeClass('has-error');
-        $('.form-group').removeClass('has-info');
-        $('.help-block').remove();
-      };
-
-      // Email validation helpers
-      const isEmail = (email) =>
-        email.match(
-          /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-        );
-
-      const passwordlessSendEmail = () => {
-        const email = $('#email').val();
-
-        // Validate email & request code
-        if (isEmail(email)) {
-          webAuth.passwordlessStart(
-            {
-              connection: 'email',
-              send: 'code',
-              email
-            },
-            (err, res) => {
-              // Show error message if there is an error from Auth0
-              if (err) {
-                removeMessage();
-                displayMessage(
-                  'Something went wrong, error details are in your browser console.',
-                  err
+            // Initialize Auth0
+            let config;
+            let params;
+            let webAuth = null;
+            const setupAuth0FromConfig = () => {
+                config = JSON.parse(
+                    decodeURIComponent(escape(window.atob('@@config@@')))
                 );
-                return;
-              }
+                params = Object.assign(
+                    {
+                        domain: config.auth0Domain,
+                        clientID: config.clientID,
+                        redirectUri: config.callbackURL,
+                        scope: 'openid email',
+                        audience: `https://${config.auth0Domain}/userinfo`,
+                        responseType: 'code',
+                    },
+                    config.internalOptions
+                );
+                webAuth = new auth0.WebAuth(params);
+            };
 
-              // Hide error messages, if any.
-              removeMessage();
-              // Hide the buttons & disable the email input
-              $('#send-email-btn').hide();
-              $('#confirm-email-btn').hide();
-              $('#email').attr('disabled', true);
-              // Show the code input
-              $('.enter-code').show();
-            }
-          );
-        } else {
-          // User did not enter a valid email address
-          removeMessage();
-          displayMessage(
-            'The email you entered is not valid. Please check and try again.'
-          );
-        }
-      };
+            // Error handling helpers
+            const displayMessage = (errMsg, err = '', errType = 'error') => {
+                if (errType === 'error') {
+                    $('.form-group').addClass('has-error');
+                } else {
+                    $('.form-group').addClass('has-info');
+                }
 
-      const passwordlessLogin = () => {
-        const email = $('#email').val();
-        const code = $('#code').val();
+                if ($('.form-group .help-block').length === 0) {
+                    $('.form-group').append(
+                        `<div class="help-block">${errMsg}</div>`
+                    );
+                }
 
-        webAuth.passwordlessLogin(
-          {
-            connection: 'email',
-            email,
-            verificationCode: code
-          },
-          (err, res) => {
-            if (err) {
-              removeMessage();
-              displayMessage(
-                'The code you entered is not valid. Please check the last OTP you received and try again.',
-                err
-              );
-            } else {
-              // Remove error when correct OTP code entered & the page will redirect
-              removeMessage();
-            }
-          }
-        );
-      };
+                // Set local storage with localStorage.setItem('debug', 'true') to show the error message
+                if (localStorage.getItem('debug') === 'true') {
+                    console.log(errType, errMsg, err);
+                }
+            };
+            const removeMessage = () => {
+                $('.form-group').removeClass('has-error');
+                $('.form-group').removeClass('has-info');
+                $('.help-block').remove();
+            };
 
-      /*
+            // Email validation helpers
+            const isEmail = (email) =>
+                email.match(
+                    /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+                );
+
+            const passwordlessSendEmail = () => {
+                const email = $('#email').val();
+
+                // Validate email & request code
+                if (isEmail(email)) {
+                    webAuth.passwordlessStart(
+                        {
+                            connection: 'email',
+                            send: 'code',
+                            email,
+                        },
+                        (err, res) => {
+                            // Show error message if there is an error from Auth0
+                            if (err) {
+                                removeMessage();
+                                displayMessage(
+                                    'Something went wrong, error details are in your browser console.',
+                                    err
+                                );
+                                return;
+                            }
+
+                            // Hide error messages, if any.
+                            removeMessage();
+                            // Hide the buttons & disable the email input
+                            $('#send-email-btn').hide();
+                            $('#confirm-email-btn').hide();
+                            $('#email').attr('disabled', true);
+                            // Show the code input
+                            $('.enter-code').show();
+                        }
+                    );
+                } else {
+                    // User did not enter a valid email address
+                    removeMessage();
+                    displayMessage(
+                        'The email you entered is not valid. Please check and try again.'
+                    );
+                }
+            };
+
+            const passwordlessLogin = () => {
+                const email = $('#email').val();
+                const code = $('#code').val();
+
+                webAuth.passwordlessLogin(
+                    {
+                        connection: 'email',
+                        email,
+                        verificationCode: code,
+                    },
+                    (err, res) => {
+                        if (err) {
+                            removeMessage();
+                            displayMessage(
+                                'The code you entered is not valid. Please check the last OTP you received and try again.',
+                                err
+                            );
+                        } else {
+                            // Remove error when correct OTP code entered & the page will redirect
+                            removeMessage();
+                        }
+                    }
+                );
+            };
+
+            /*
         Event listeners
       */
 
-      // Cleanup any error messages when user starts typing
-      $('#email').on('input', (event) => {
-        removeMessage();
-      });
+            // Cleanup any error messages when user starts typing
+            $('#email').on('input', (event) => {
+                removeMessage();
+            });
 
-      // Send Sign in code button
-      $('#send-email-btn').on('click', () => {
-        let maybeTypo = false;
+            // Send Sign in code button
+            $('#send-email-btn').on('click', () => {
+                let maybeTypo = false;
 
-        // Check for typos in email address
-        Mailcheck.run({
-          email: $('#email').val(),
-          suggested: (suggestion) => {
-            // Show error message with suggested email address
-            removeMessage();
-            displayMessage(`Did you mean ${suggestion.full}?`, '', 'info');
-            // Hide the email button and instead show a confirmation button
-            $('#send-email-btn').hide();
-            $('#confirm-email-btn').show();
-            maybeTypo = true;
-          },
-          empty: () => {
-            removeMessage();
-            maybeTypo = false;
-          }
-        });
+                // Check for typos in email address
+                Mailcheck.run({
+                    email: $('#email').val(),
+                    suggested: (suggestion) => {
+                        // Show error message with suggested email address
+                        removeMessage();
+                        displayMessage(
+                            `Did you mean ${suggestion.full}?`,
+                            '',
+                            'info'
+                        );
+                        // Hide the email button and instead show a confirmation button
+                        $('#send-email-btn').hide();
+                        $('#confirm-email-btn').show();
+                        maybeTypo = true;
+                    },
+                    empty: () => {
+                        removeMessage();
+                        maybeTypo = false;
+                    },
+                });
 
-        // If no typos, send the email
-        if (!maybeTypo) {
-          setupAuth0FromConfig();
-          passwordlessSendEmail();
-        }
-      });
+                // If no typos, send the email
+                if (!maybeTypo) {
+                    setupAuth0FromConfig();
+                    passwordlessSendEmail();
+                }
+            });
 
-      // Confirm email button (after typo check)
-      $('#confirm-email-btn').on('click', () => {
-        // If user confirms email address, send the email (we already checked for typos once)
-        setupAuth0FromConfig();
-        passwordlessSendEmail();
-      });
+            // Confirm email button (after typo check)
+            $('#confirm-email-btn').on('click', () => {
+                // If user confirms email address, send the email (we already checked for typos once)
+                setupAuth0FromConfig();
+                passwordlessSendEmail();
+            });
 
-      // Login button (after OTP code entered)
-      $('#send-code-btn').on('click', () => {
-        passwordlessLogin();
-      });
+            // Login button (after OTP code entered)
+            $('#send-code-btn').on('click', () => {
+                passwordlessLogin();
+            });
 
-      // Login with Google button
-      $('#login-google').on('click', () => {
-        setupAuth0FromConfig();
-        webAuth.authorize({
-          connection: 'google-oauth2'
-        });
-      });
+            // Login with Google button
+            $('#login-google').on('click', () => {
+                setupAuth0FromConfig();
+                webAuth.authorize({
+                    connection: 'google-oauth2',
+                });
+            });
 
-      // Login with GitHub button
-      $('#login-github').on('click', () => {
-        setupAuth0FromConfig();
-        webAuth.authorize({
-          connection: 'github'
-        });
-      });
-    </script>
+            // Login with GitHub button
+            $('#login-github').on('click', () => {
+                setupAuth0FromConfig();
+                webAuth.authorize({
+                    connection: 'github',
+                });
+            });
+        </script>
 
-    <script>
-      (function (i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-        (i[r] =
-          i[r] ||
-          function () {
-            (i[r].q = i[r].q || []).push(arguments);
-          }),
-          (i[r].l = 1 * new Date());
-        (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m);
-      })(
-        window,
-        document,
-        'script',
-        '//www.google-analytics.com/analytics.js',
-        'ga'
-      );
-      ga('create', 'UA-55446531-1', 'auto');
-      ga('require', 'displayfeatures');
-      ga('send', 'pageview');
-    </script>
-  </body>
+        <script>
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                (i[r] =
+                    i[r] ||
+                    function () {
+                        (i[r].q = i[r].q || []).push(arguments);
+                    }),
+                    (i[r].l = 1 * new Date());
+                (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m);
+            })(
+                window,
+                document,
+                'script',
+                '//www.google-analytics.com/analytics.js',
+                'ga'
+            );
+            ga('create', 'UA-55446531-1', 'auto');
+            ga('require', 'displayfeatures');
+            ga('send', 'pageview');
+        </script>
+    </body>
 </html>
