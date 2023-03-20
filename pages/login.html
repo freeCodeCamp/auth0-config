@@ -318,6 +318,15 @@
         color: var(--gray-05);
       }
 
+      #login-github:hover img{
+        content: url('../icons/github-mark-white.svg');
+      }
+
+      #send-email-btn:hover img{
+        /* content: url('../icons/email_white_48dp.svg'); */
+        content: url('../icons/mail_outline_white_48dp.svg');
+      }
+
       .btn:active,
       .btn-primary:active {
         background-color: var(--gray-05);
@@ -453,10 +462,10 @@
             -->
             <div class="social-signin-methods">
               <button id="login-google" class="btn btn-primary align-center">
-                Continue with Google <img src="../icons/icons8-google.svg" alt="Google Icon" width="40px"/>
+                <img src="../icons/icons8-google.svg" width="40px"/> Continue with Google
               </button>
               <button id="login-github" class="btn btn-primary align-center">
-                Continue with GitHub <img src="../icons/icons8-github.svg" alt="GitHub Icon" width="40px"/>
+                <img src="../icons/github-mark.svg" width="40px"/> Continue with GitHub
               </button>
               <h3 class="separator"><span>or</span></h3>
             </div>
@@ -477,9 +486,9 @@
                       type="email"
                     />
                   </div>
-                  <div class="button-holder">
-                    <button class="btn btn-primary" id="send-email-btn">
-                      Email me a sign in code
+                  <div class="button-holder align-center">
+                    <button class="btn btn-primary align-center" id="send-email-btn">
+                    <img src="../icons/mail_outline_black_48dp.svg" width="40px" /> Email me a sign in code
                     </button>
                     <button
                       class="btn btn-primary"
@@ -765,7 +774,7 @@
 
       // Login with GitHub button
       $('#login-github').on('click', () => {
-        setupAuth0FromConfig();
+        setupAuth0FromConfig();login-github
         webAuth.authorize({
           connection: 'github'
         });
