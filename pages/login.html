@@ -59,6 +59,8 @@
         --gray-05: #eeeef0;
         --gray-00: #fff;
         --error: #a94442;
+        --yellow-light: #ffc300;
+        --yellow-mid: #f2ba38;
         --header-height: 38px;
       }
 
@@ -126,7 +128,7 @@
 
       .default-layout {
         margin-top: var(--header-height, 0px);
-        background: var(--gray-00);
+        background: var(--gray-05);
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -206,7 +208,7 @@
       }
 
       .separator span {
-        background: #fff;
+        background: var(--gray-05);
         color: var(--gray-75);
         padding: 0 10px;
       }
@@ -246,6 +248,7 @@
         font-size: 22px;
         color: var(--gray-85);
         border-radius: 0px;
+        border: 2px solid var(--gray-90);
         text-decoration: none;
         outline: none;
       }
@@ -286,12 +289,14 @@
       .has-error > .form-control {
         border: 1px solid var(--error);
       }
+
       .align-center {
         display: flex;
         justify-content: center;
         align-items: center;
         gap: 5px;
-    }
+      }
+
       .btn {
         font-family: 'Roboto Mono', monospace;
         min-height: 56px;
@@ -299,8 +304,7 @@
         padding: 10px 16px;
         font-size: 22px;
         background-color: var(--gray-15);
-        border-width: 3px;
-        border-color: var(--gray-85);
+        border: 3px solid var(--gray-85);
         color: var(--gray-85);
         border-radius: 0px;
         text-decoration: none;
@@ -316,15 +320,6 @@
         border-color: var(--gray-85);
         background-color: var(--gray-85);
         color: var(--gray-05);
-      }
-
-      #login-github:hover img{
-        content: url('../icons/github-mark-white.svg');
-      }
-
-      #send-email-btn:hover img{
-        /* content: url('../icons/email_white_48dp.svg'); */
-        content: url('../icons/mail_outline_white_48dp.svg');
       }
 
       .btn:active,
@@ -373,6 +368,21 @@
         background-color: var(--gray-15);
         border-color: var(--gray-75);
         color: var(--gray-75);
+      }
+
+      .btn img {
+        padding: 0px 8px;
+      }
+
+      #login-google,
+      #login-github {
+        background: var(--gray-00);
+      }
+
+      #login-google:hover, 
+      #login-github:hover{
+        background-color: var(--gray-15);
+        color: var(--gray-90);
       }
 
       @media (min-width: 501px) {
@@ -462,10 +472,10 @@
             -->
             <div class="social-signin-methods">
               <button id="login-google" class="btn btn-primary align-center">
-                <img src="../icons/icons8-google.svg" width="40px"/> Continue with Google
+                <img src="../icons/google.svg" /> Continue with Google
               </button>
               <button id="login-github" class="btn btn-primary align-center">
-                <img src="../icons/github-mark.svg" width="40px"/> Continue with GitHub
+                <img src="../icons/github.svg" /> Continue with GitHub
               </button>
               <h3 class="separator"><span>or</span></h3>
             </div>
@@ -488,7 +498,7 @@
                   </div>
                   <div class="button-holder align-center">
                     <button class="btn btn-primary align-center" id="send-email-btn">
-                    <img src="../icons/mail_outline_black_48dp.svg" width="40px" /> Email me a sign in code
+                      Email me a sign in code
                     </button>
                     <button
                       class="btn btn-primary"
@@ -774,7 +784,7 @@
 
       // Login with GitHub button
       $('#login-github').on('click', () => {
-        setupAuth0FromConfig();login-github
+        setupAuth0FromConfig();
         webAuth.authorize({
           connection: 'github'
         });
