@@ -375,12 +375,14 @@
       }
 
       #login-google,
-      #login-github {
+      #login-github,
+      #login-apple {
         background: var(--gray-00);
       }
 
       #login-google:hover, 
-      #login-github:hover{
+      #login-github:hover,
+      #login-apple:hover{
         background-color: var(--gray-15);
         color: var(--gray-90);
       }
@@ -476,6 +478,9 @@
               </button>
               <button id="login-github" class="btn btn-primary align-center">
                 <img src="../icons/github.svg" /> Continue with GitHub
+              </button>
+              <button id="login-apple" class="btn btn-primary align-center">
+                <img src="../icons/apple.svg" /> Continue with Apple
               </button>
               <h3 class="separator"><span>or</span></h3>
             </div>
@@ -784,6 +789,14 @@
 
       // Login with GitHub button
       $('#login-github').on('click', () => {
+        setupAuth0FromConfig();
+        webAuth.authorize({
+          connection: 'github'
+        });
+      });
+
+      //Login with Apple button
+      $('#login-apple').on('click', () => {
         setupAuth0FromConfig();
         webAuth.authorize({
           connection: 'github'
