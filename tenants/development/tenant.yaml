@@ -1,0 +1,456 @@
+rules: []
+rulesConfigs: []
+pages:
+  - name: login
+    enabled: false
+    html: ./pages/login.html
+resourceServers: []
+clients:
+  - name: Auth0Deploy
+    app_type: non_interactive
+    cross_origin_auth: false
+    custom_login_page_on: true
+    grant_types:
+      - client_credentials
+    is_first_party: true
+    is_token_endpoint_ip_header_trusted: false
+    jwt_configuration:
+      alg: RS256
+      lifetime_in_seconds: 36000
+      secret_encoded: false
+    oidc_conformant: true
+    refresh_token:
+      expiration_type: non-expiring
+      leeway: 0
+      infinite_token_lifetime: true
+      infinite_idle_token_lifetime: true
+      token_lifetime: 31557600
+      idle_token_lifetime: 2592000
+      rotation_type: non-rotating
+    sso_disabled: false
+    token_endpoint_auth_method: client_secret_post
+  - name: freeCodeCamp Classroom (Dev)
+    allowed_clients: []
+    app_type: spa
+    callbacks:
+      - http://localhost:3000/api/auth/callback/auth0
+    client_aliases: []
+    cross_origin_auth: false
+    custom_login_page_on: true
+    grant_types:
+      - authorization_code
+      - implicit
+      - refresh_token
+    is_first_party: true
+    is_token_endpoint_ip_header_trusted: false
+    jwt_configuration:
+      alg: RS256
+      lifetime_in_seconds: 36000
+      secret_encoded: false
+    native_social_login:
+      apple:
+        enabled: false
+      facebook:
+        enabled: false
+    oidc_conformant: true
+    refresh_token:
+      expiration_type: expiring
+      leeway: 0
+      token_lifetime: 2592000
+      idle_token_lifetime: 1296000
+      infinite_token_lifetime: false
+      infinite_idle_token_lifetime: false
+      rotation_type: rotating
+    sso_disabled: false
+    token_endpoint_auth_method: none
+    web_origins: []
+  - name: freeCodeCamp Mobile (Dev)
+    allowed_clients: []
+    allowed_logout_urls:
+      - fccapp://freecodecamp-dev.auth0.com/android/org.freecodecamp/callback
+      - >-
+        org.freecodecamp.ios://freecodecamp-dev.auth0.com/ios/org.freecodecamp.ios/callback
+    app_type: native
+    callbacks:
+      - fccapp://freecodecamp-dev.auth0.com/android/org.freecodecamp/callback
+      - >-
+        org.freecodecamp.ios://freecodecamp-dev.auth0.com/ios/org.freecodecamp.ios/callback
+    client_aliases: []
+    cross_origin_auth: false
+    custom_login_page_on: true
+    grant_types:
+      - authorization_code
+      - implicit
+      - refresh_token
+    is_first_party: true
+    is_token_endpoint_ip_header_trusted: false
+    jwt_configuration:
+      alg: RS256
+      lifetime_in_seconds: 36000
+      secret_encoded: false
+    mobile:
+      android:
+        app_package_name: org.freecodecamp
+    native_social_login:
+      apple:
+        enabled: false
+      facebook:
+        enabled: false
+    oidc_conformant: true
+    refresh_token:
+      expiration_type: non-expiring
+      leeway: 0
+      infinite_token_lifetime: true
+      infinite_idle_token_lifetime: true
+      token_lifetime: 2592000
+      idle_token_lifetime: 1296000
+      rotation_type: non-rotating
+    sso_disabled: false
+    token_endpoint_auth_method: none
+  - name: freeCodeCamp.dev
+    allowed_clients: []
+    allowed_logout_urls: []
+    allowed_origins:
+      - https://*.freecodecamp.org
+      - https://*.freecodecamp.dev
+    app_type: spa
+    callbacks:
+      - https://api.freecodecamp.dev/auth/auth0/callback
+      - http://api.freecodecamp.dev/auth/auth0/callback
+    client_aliases: []
+    cross_origin_auth: false
+    custom_login_page_on: true
+    description: ''
+    grant_types:
+      - authorization_code
+      - implicit
+      - refresh_token
+    initiate_login_uri: https://api.freecodecamp.dev/signin
+    is_first_party: true
+    is_token_endpoint_ip_header_trusted: false
+    jwt_configuration:
+      alg: RS256
+      lifetime_in_seconds: 36000
+      secret_encoded: false
+    logo_uri: https://cdn.freecodecamp.org/platform/universal/logo-512X512.png
+    native_social_login:
+      apple:
+        enabled: false
+      facebook:
+        enabled: false
+    oidc_conformant: true
+    refresh_token:
+      expiration_type: non-expiring
+      idle_token_lifetime: 1296000
+      infinite_idle_token_lifetime: true
+      infinite_token_lifetime: true
+      leeway: 0
+      token_lifetime: 2592000
+      rotation_type: non-rotating
+    sso: true
+    sso_disabled: false
+    token_endpoint_auth_method: none
+    web_origins:
+      - https://*.freecodecamp.org
+      - https://*.freecodecamp.dev
+  - name: freeCodeCamp.local
+    allowed_clients: []
+    allowed_origins:
+      - http://localhost:3000
+    app_type: regular_web
+    callbacks:
+      - http://localhost:3000/auth/auth0/callback
+    client_aliases: []
+    cross_origin_auth: false
+    custom_login_page_on: true
+    grant_types:
+      - authorization_code
+      - implicit
+      - refresh_token
+      - client_credentials
+    is_first_party: true
+    is_token_endpoint_ip_header_trusted: false
+    jwt_configuration:
+      alg: RS256
+      lifetime_in_seconds: 36000
+      secret_encoded: false
+    native_social_login:
+      apple:
+        enabled: false
+      facebook:
+        enabled: false
+    oidc_conformant: true
+    refresh_token:
+      expiration_type: non-expiring
+      idle_token_lifetime: 1296000
+      infinite_idle_token_lifetime: true
+      infinite_token_lifetime: true
+      leeway: 0
+      token_lifetime: 2592000
+      rotation_type: non-rotating
+    sso_disabled: false
+    token_endpoint_auth_method: client_secret_post
+    web_origins:
+      - http://localhost:3000
+connections:
+  - name: apple
+    strategy: apple
+    id: con_U5H2fjR4NflrYp9I
+    enabled_clients:
+      - Auth0Deploy
+      - freeCodeCamp Classroom (Dev)
+      - freeCodeCamp Mobile (Dev)
+      - freeCodeCamp.dev
+      - freeCodeCamp.local
+    is_domain_connection: false
+    options:
+      name: true
+      email: true
+      scope: name email
+  - name: email
+    strategy: email
+    id: con_q1lnXqdDHXI69YqQ
+    enabled_clients:
+      - Auth0Deploy
+      - freeCodeCamp Classroom (Dev)
+      - freeCodeCamp Mobile (Dev)
+      - freeCodeCamp.dev
+      - freeCodeCamp.local
+    is_domain_connection: false
+    options:
+      name: email
+      totp:
+        length: 6
+        time_step: 900
+      email:
+        body: ./email.html
+        from: '{{ application.name }} <team@freecodecamp.org>'
+        syntax: liquid
+        subject: '{{ application.name }} — Your sign in request'
+      authParams: ''
+      disable_signup: false
+      brute_force_protection: true
+  - name: facebook
+    strategy: facebook
+    id: con_oo7tq8yRfFUhpj8f
+    enabled_clients:
+      - Auth0Deploy
+    is_domain_connection: false
+    options:
+      email: true
+      scope: email
+      ads_read: false
+      user_link: false
+      rsvp_event: false
+      user_likes: false
+      user_posts: false
+      read_stream: false
+      user_events: false
+      user_gender: false
+      user_groups: false
+      user_photos: false
+      user_status: false
+      user_videos: false
+      manage_pages: false
+      read_mailbox: false
+      user_friends: false
+      user_website: false
+      publish_pages: false
+      publish_video: false
+      read_insights: false
+      user_about_me: false
+      user_birthday: false
+      user_hometown: false
+      user_location: false
+      ads_management: false
+      public_profile: false
+      user_age_range: false
+      leads_retrieval: false
+      pages_messaging: false
+      pages_show_list: false
+      publish_actions: false
+      pages_manage_cta: false
+      publish_to_groups: false
+      user_actions-news: false
+      user_work_history: false
+      user_actions-books: false
+      user_actions-music: false
+      user_actions-video: false
+      user_relationships: false
+      user_tagged_places: false
+      business_management: false
+      read_page_mailboxes: false
+      user_games_activity: false
+      user_managed_groups: false
+      manage_notifications: false
+      user_actions-fitness: false
+      user_education_history: false
+      user_religion_politics: false
+      read_custom_friendlists: false
+      groups_access_member_info: false
+      user_relationship_details: false
+      allow_context_profile_field: false
+      pages_messaging_phone_number: false
+      pages_manage_instant_articles: false
+      pages_messaging_subscriptions: false
+      read_audience_network_insights: false
+  - name: github
+    strategy: github
+    id: con_JtqI35PyBXdH21fs
+    enabled_clients:
+      - Auth0Deploy
+      - freeCodeCamp Classroom (Dev)
+      - freeCodeCamp Mobile (Dev)
+      - freeCodeCamp.dev
+      - freeCodeCamp.local
+    is_domain_connection: false
+    options:
+      gist: false
+      repo: false
+      email: true
+      scope:
+        - user:email
+      follow: false
+      profile: true
+      read_org: false
+      admin_org: false
+      read_user: false
+      write_org: false
+      delete_repo: false
+      public_repo: false
+      repo_status: false
+      notifications: false
+      read_repo_hook: false
+      admin_repo_hook: false
+      read_public_key: false
+      repo_deployment: false
+      write_repo_hook: false
+      admin_public_key: false
+      write_public_key: false
+  - name: google-oauth2
+    strategy: google-oauth2
+    id: con_q7smQLu3WHlf3Wu0
+    enabled_clients:
+      - Auth0Deploy
+      - freeCodeCamp Classroom (Dev)
+      - freeCodeCamp Mobile (Dev)
+      - freeCodeCamp.dev
+      - freeCodeCamp.local
+    is_domain_connection: false
+    options:
+      email: true
+      gmail: false
+      orkut: false
+      scope:
+        - email
+        - profile
+      sites: false
+      tasks: false
+      blogger: false
+      profile: true
+      youtube: false
+      calendar: false
+      contacts: false
+      analytics: false
+      moderator: false
+      coordinate: false
+      picasa_web: false
+      google_plus: false
+      google_books: false
+      google_drive: false
+      spreadsheets: false
+      document_list: false
+      latitude_best: false
+      latitude_city: false
+      url_shortener: false
+      webmaster_tools: false
+      chrome_web_store: false
+      allowed_audiences: []
+      adsense_management: false
+      google_drive_files: false
+      coordinate_readonly: false
+      google_cloud_storage: false
+      content_api_for_shopping: false
+      google_affiliate_network: false
+tenant:
+  enabled_locales:
+    - en
+  flags:
+    enable_public_signup_user_exists_error: true
+    new_universal_login_experience_enabled: true
+    universal_login: true
+    dashboard_ui_next: true
+    disable_clickjack_protection_headers: false
+    include_email_in_reset_pwd_redirect: true
+    include_email_in_verify_email_redirect: true
+  friendly_name: freeCodeCamp.dev
+  picture_url: https://cdn.freecodecamp.org/platform/universal/logo-512X512.png
+  sandbox_version: '12'
+  support_email: dev@freecodecamp.org
+  support_url: freeCodeCamp.dev/support
+  universal_login:
+    colors:
+      page_background: '#0a0a23'
+      primary: '#f1be32'
+    passwordless:
+      allow_magiclink_verify_without_session: true
+emailProvider:
+  name: ses
+  credentials:
+    accessKeyId: '##SES_ACCESS_KEY_ID##'
+    secretAccessKey: '##SES_ACCESS_SECRET_KEY##'
+    region: us-east-1
+  default_from_address: team@freecodecamp.org
+  enabled: true
+emailTemplates: []
+branding:
+  colors:
+    page_background: '#0a0a23'
+    primary: '#f1be32'
+  logo_url: https://cdn.freecodecamp.org/platform/universal/logo-512X512.png
+  templates: []
+prompts:
+  customText:
+    en:
+      login:
+        login:
+          description: Log in to ${clientName}.
+          title: ${clientName}
+      login-id:
+        login-id:
+          title: ${clientName}
+          description: Log in to ${clientName}.
+  identifier_first: true
+  universal_login_experience: new
+  webauthn_platform_first_factor: false
+actions: []
+attackProtection:
+  breachedPasswordDetection:
+    enabled: false
+    shields: []
+    admin_notification_frequency: []
+    method: standard
+    stage:
+      pre-user-registration:
+        shields: []
+  bruteForceProtection:
+    enabled: true
+    shields:
+      - block
+      - user_notification
+    mode: count_per_identifier_and_ip
+    allowlist: []
+    max_attempts: 10
+  suspiciousIpThrottling:
+    enabled: true
+    shields:
+      - admin_notification
+      - block
+    allowlist: []
+    stage:
+      pre-login:
+        max_attempts: 100
+        rate: 864000
+      pre-user-registration:
+        max_attempts: 50
+        rate: 1200

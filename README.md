@@ -1,24 +1,21 @@
-# Hosted Pages and Templates for Auth0
+# Auth0 Configs
 
-> Templates used on Auth0 for <https://freeCodeCamp.org>
+> Configs for our Auth0 Tenants
 
 ## Contributing
 
-The code changes are deployed on the hosted login page (Universal logic (classic)) by Auth0. You will need your own test tenant with all the providers configured to test things like logic, validations etc. properly.
+**Note:** We limit direct contributions (in the form of pull requests) to this
+project due to limitations with our QA & deployment workflows.
 
-However you can check and update some things like verbiage, styles etc. by testing the html file like so:
+We welcome you to work on any of our other available open-source projects
+instead. You can find our contributing guidelines [here](https://contribute.freecodecamp.org/).
 
-Run
+If you found an issue or a bug on this repository, please connect with us in the
+contributor's chat room first.
 
-```
-npx serve
-```
+Happy Contributing!
 
-And then visit `http://localhost:3000/pages/login`
+## Copyright & License
 
-## License
-
-Copyright (c) 2022 freeCodeCamp.
-
-The content of this repository bound by the following LICENSE(S)
-- The computer software is licensed under the [BSD-3-Clause](./LICENSE.md).
+Copyright (c) 2023 freeCodeCamp.org - Released under the
+[BSD 3 license](LICENSE.md).

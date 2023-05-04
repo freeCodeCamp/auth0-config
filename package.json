@@ -1,0 +1,14 @@
+{
+  "type": "module",
+	"devDependencies": {
+		"auth0-deploy-cli": "7.17.2",
+		"dotenv": "16.0.3"
+	},
+  "private": true,
+  "scripts": {
+    "dev:export": "node -r dotenv/config scripts/export.js dotenv_config_path=.env.development.local",
+    "dev:import": "node -r dotenv/config scripts/import.js dotenv_config_path=.env.development.local",
+    "prd:export": "node -r dotenv/config scripts/export.js dotenv_config_path=.env.production.local",
+    "prd:import": "node -r dotenv/config scripts/import.js dotenv_config_path=.env.production.local"
+  }
+}
