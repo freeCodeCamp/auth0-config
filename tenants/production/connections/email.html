@@ -1,0 +1,43 @@
+<!-- Email change content -->
+{% if operation == 'change_email' %}
+<p>
+  Your email address has been updated.
+</p>
+{% else %}
+
+<!-- Signup email content -->
+{% if send == 'link' or send == 'link_ios' or send == 'link_android' %}
+<p>
+  Click to confirm that you want to sign in to {{ application.name }}. This link will expire in <b>15
+minutes</b>.
+</p>
+<a id="signIn" href="{{ link }}">Sign in to {{ application.name }}</a>
+<p>
+  OR
+</p>
+<p>
+  Copy and paste the following link into the URL bar of your browser:
+</p>
+<code>
+  {{ link }}
+</code>
+{% elsif send == 'code' %}
+<p>
+  Your sign in code is: <b>{{ code }}</b>
+</p>
+<p>
+  This code is valid for the next <b>15 minutes</b> only.
+<p>
+{% endif %}
+
+{% endif %}
+<p>
+  If you need technical support, here are some <a href="https://support.freecodecamp.org/">frequently asked questions and answers</a>.
+</p>
+
+<p>
+Happy Coding.
+<p>
+<strong>
+  - the {{ application.name }} team.
+</strong>
