@@ -59,8 +59,6 @@
         --gray-05: #eeeef0;
         --gray-00: #fff;
         --error: #a94442;
-        --yellow-light: #ffc300;
-        --yellow-mid: #f2ba38;
         --header-height: 38px;
       }
 
@@ -128,7 +126,7 @@
 
       .default-layout {
         margin-top: var(--header-height, 0px);
-        background: var(--gray-05);
+        background: var(--gray-00);
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -208,7 +206,7 @@
       }
 
       .separator span {
-        background: var(--gray-05);
+        background: #fff;
         color: var(--gray-75);
         padding: 0 10px;
       }
@@ -248,7 +246,6 @@
         font-size: 22px;
         color: var(--gray-85);
         border-radius: 0px;
-        border: 2px solid var(--gray-90);
         text-decoration: none;
         outline: none;
       }
@@ -290,13 +287,6 @@
         border: 1px solid var(--error);
       }
 
-      .align-center {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 5px;
-      }
-
       .btn {
         font-family: 'Roboto Mono', monospace;
         min-height: 56px;
@@ -304,7 +294,8 @@
         padding: 10px 16px;
         font-size: 22px;
         background-color: var(--gray-15);
-        border: 3px solid var(--gray-85);
+        border-width: 3px;
+        border-color: var(--gray-85);
         color: var(--gray-85);
         border-radius: 0px;
         text-decoration: none;
@@ -368,21 +359,6 @@
         background-color: var(--gray-15);
         border-color: var(--gray-75);
         color: var(--gray-75);
-      }
-
-      .btn img {
-        padding: 0px 8px;
-      }
-
-      #login-google,
-      #login-github {
-        background: var(--gray-00);
-      }
-
-      #login-google:hover, 
-      #login-github:hover{
-        background-color: var(--gray-15);
-        color: var(--gray-90);
       }
 
       @media (min-width: 501px) {
@@ -471,11 +447,11 @@
             
             -->
             <div class="social-signin-methods">
-              <button id="login-google" class="btn btn-primary align-center">
-                <img src="../icons/google.svg" /> Continue with Google
+              <button id="login-google" class="btn btn-primary">
+                Continue with Google
               </button>
-              <button id="login-github" class="btn btn-primary align-center">
-                <img src="../icons/github.svg" /> Continue with GitHub
+              <button id="login-github" class="btn btn-primary">
+                Continue with GitHub
               </button>
               <h3 class="separator"><span>or</span></h3>
             </div>
@@ -496,8 +472,8 @@
                       type="email"
                     />
                   </div>
-                  <div class="button-holder align-center">
-                    <button class="btn btn-primary align-center" id="send-email-btn">
+                  <div class="button-holder">
+                    <button class="btn btn-primary" id="send-email-btn">
                       Email me a sign in code
                     </button>
                     <button
