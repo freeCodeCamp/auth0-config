@@ -13,7 +13,7 @@
       position: absolute;
       height: 100%;
       width: 100%;
-      background-color: #2b2b33;
+      background-color: {{ pageBackgroundColor | default: '#2b2b33' }};
     }
 
     .cell {
@@ -42,7 +42,7 @@
     </div>
   </div>
 
-  <script src="//cdn.auth0.com/js/mfa-widget/mfa-widget-1.4.min.js"></script>
+  <script src="//cdn.auth0.com/js/mfa-widget/mfa-widget-1.8.min.js"></script>
 
   <script>
     (function() {
@@ -50,13 +50,13 @@
         container: "container",
 
         theme: {
-          icon: '//cdn.auth0.com/blog/react-js/react.png',
-          primaryColor: "#ea5323"
+          icon: "{{ iconUrl | default: '//cdn.auth0.com/styleguide/1.0.0/img/badge.png' }}",
+          primaryColor: "{{ primaryColor | default: '#ea5323' }}"
         },
 
         requesterErrors: [
           {% for error in errors %}
-            { message: "{{ error.message }}" }
+            { message: "{{ error.message }}", errorCode: "{{ error.code }}" }
           {% endfor %}
         ],
 

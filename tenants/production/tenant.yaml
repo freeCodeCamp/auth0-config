@@ -285,6 +285,10 @@ connections:
     id: con_wS6S3vyIckRe6eF2
     enabled_clients:
       - Auth0Deploy
+      - freeCodeCamp Chapter
+      - freeCodeCamp Chat
+      - freeCodeCamp Classroom
+      - freeCodeCamp Forum
       - freeCodeCamp Mobile
       - freeCodeCamp.org
     is_domain_connection: false
@@ -322,12 +326,6 @@ connections:
     id: con_R4v48tu8fIA9BByS
     enabled_clients:
       - Auth0Deploy
-      - freeCodeCamp Chapter
-      - freeCodeCamp Chat
-      - freeCodeCamp Classroom
-      - freeCodeCamp Forum
-      - freeCodeCamp Mobile
-      - freeCodeCamp.org
     is_domain_connection: false
     options:
       email: true
@@ -526,7 +524,7 @@ attackProtection:
       pre-user-registration:
         shields: []
   bruteForceProtection:
-    enabled: false
+    enabled: true
     shields:
       - block
       - user_notification
@@ -534,7 +532,7 @@ attackProtection:
     allowlist: []
     max_attempts: 10
   suspiciousIpThrottling:
-    enabled: false
+    enabled: true
     shields:
       - admin_notification
       - block
