@@ -8,7 +8,7 @@
 project due to limitations with our QA & deployment workflows.
 
 We welcome you to work on any of our other available open-source projects
-instead. You can find our contributing guidelines [here][5].
+instead. You can find our contributing guidelines [here](https://contribute.freecodecamp.org/).
 
 If you found an issue or a bug on this repository, please connect with us in the
 contributor's chat room first.
