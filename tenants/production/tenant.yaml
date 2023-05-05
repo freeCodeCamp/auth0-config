@@ -273,8 +273,13 @@ clients:
         enabled: false
     oidc_conformant: true
     refresh_token:
-      rotation_type: non-rotating
       expiration_type: non-expiring
+      idle_token_lifetime: 1296000
+      infinite_idle_token_lifetime: true
+      infinite_token_lifetime: true
+      leeway: 0
+      token_lifetime: 2592000
+      rotation_type: non-rotating
     sso: true
     sso_disabled: false
     token_endpoint_auth_method: none
@@ -463,13 +468,13 @@ tenant:
   flags:
     enable_custom_domain_in_emails: true
     enable_public_signup_user_exists_error: true
+    enforce_client_authentication_on_passwordless_start: false
     new_universal_login_experience_enabled: false
     universal_login: false
     dashboard_ui_next: true
     disable_clickjack_protection_headers: false
     include_email_in_reset_pwd_redirect: true
     include_email_in_verify_email_redirect: true
-    enforce_client_authentication_on_passwordless_start: false
   friendly_name: freeCodeCamp.org
   picture_url: https://cdn.freecodecamp.org/platform/universal/logo-512X512.png
   sandbox_version: '16'
