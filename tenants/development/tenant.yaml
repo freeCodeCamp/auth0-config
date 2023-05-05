@@ -29,7 +29,7 @@ clients:
       rotation_type: non-rotating
     sso_disabled: false
     token_endpoint_auth_method: client_secret_post
-  - name: freeCodeCamp Classroom (Dev)
+  - name: Classroom (Dev)
     allowed_clients: []
     app_type: spa
     callbacks:
@@ -64,7 +64,46 @@ clients:
     sso_disabled: false
     token_endpoint_auth_method: none
     web_origins: []
-  - name: freeCodeCamp Mobile (Dev)
+  - name: LOCAL-TEST
+    allowed_clients: []
+    allowed_origins:
+      - http://localhost:3000
+    app_type: regular_web
+    callbacks:
+      - http://localhost:3000/auth/auth0/callback
+    client_aliases: []
+    cross_origin_auth: false
+    custom_login_page_on: true
+    grant_types:
+      - authorization_code
+      - implicit
+      - refresh_token
+      - client_credentials
+    is_first_party: true
+    is_token_endpoint_ip_header_trusted: false
+    jwt_configuration:
+      alg: RS256
+      lifetime_in_seconds: 36000
+      secret_encoded: false
+    native_social_login:
+      apple:
+        enabled: false
+      facebook:
+        enabled: false
+    oidc_conformant: true
+    refresh_token:
+      expiration_type: non-expiring
+      idle_token_lifetime: 1296000
+      infinite_idle_token_lifetime: true
+      infinite_token_lifetime: true
+      leeway: 0
+      token_lifetime: 2592000
+      rotation_type: non-rotating
+    sso_disabled: false
+    token_endpoint_auth_method: client_secret_post
+    web_origins:
+      - http://localhost:3000
+  - name: Mobile (Dev)
     allowed_clients: []
     allowed_logout_urls:
       - fccapp://freecodecamp-dev.auth0.com/android/org.freecodecamp/callback
@@ -82,6 +121,7 @@ clients:
       - authorization_code
       - implicit
       - refresh_token
+      - http://auth0.com/oauth/grant-type/passwordless/otp
     is_first_party: true
     is_token_endpoint_ip_header_trusted: false
     jwt_configuration:
@@ -91,9 +131,11 @@ clients:
     mobile:
       android:
         app_package_name: org.freecodecamp
+      ios:
+        app_bundle_identifier: org.freecodecamp.ios
     native_social_login:
       apple:
-        enabled: false
+        enabled: true
       facebook:
         enabled: false
     oidc_conformant: true
@@ -107,7 +149,7 @@ clients:
       rotation_type: non-rotating
     sso_disabled: false
     token_endpoint_auth_method: none
-  - name: freeCodeCamp.dev
+  - name: freeCodeCamp
     allowed_clients: []
     allowed_logout_urls: []
     allowed_origins:
@@ -153,55 +195,16 @@ clients:
     web_origins:
       - https://*.freecodecamp.org
       - https://*.freecodecamp.dev
-  - name: freeCodeCamp.local
-    allowed_clients: []
-    allowed_origins:
-      - http://localhost:3000
-    app_type: regular_web
-    callbacks:
-      - http://localhost:3000/auth/auth0/callback
-    client_aliases: []
-    cross_origin_auth: false
-    custom_login_page_on: true
-    grant_types:
-      - authorization_code
-      - implicit
-      - refresh_token
-      - client_credentials
-    is_first_party: true
-    is_token_endpoint_ip_header_trusted: false
-    jwt_configuration:
-      alg: RS256
-      lifetime_in_seconds: 36000
-      secret_encoded: false
-    native_social_login:
-      apple:
-        enabled: false
-      facebook:
-        enabled: false
-    oidc_conformant: true
-    refresh_token:
-      expiration_type: non-expiring
-      idle_token_lifetime: 1296000
-      infinite_idle_token_lifetime: true
-      infinite_token_lifetime: true
-      leeway: 0
-      token_lifetime: 2592000
-      rotation_type: non-rotating
-    sso_disabled: false
-    token_endpoint_auth_method: client_secret_post
-    web_origins:
-      - http://localhost:3000
 connections:
   - name: apple
     strategy: apple
     id: con_U5H2fjR4NflrYp9I
     enabled_clients:
       - Auth0Deploy
-      - freeCodeCamp Classroom (Dev)
-      - freeCodeCamp Mobile (Dev)
-      - freeCodeCamp.dev
-      - freeCodeCamp.local
+      - Classroom (Dev)
+      - freeCodeCamp
+      - LOCAL-TEST
+      - Mobile (Dev)
     is_domain_connection: false
     options:
       name: true
@@ -212,10 +215,10 @@ connections:
     id: con_q1lnXqdDHXI69YqQ
     enabled_clients:
       - Auth0Deploy
-      - freeCodeCamp Classroom (Dev)
-      - freeCodeCamp Mobile (Dev)
-      - freeCodeCamp.dev
-      - freeCodeCamp.local
+      - Classroom (Dev)
+      - freeCodeCamp
+      - LOCAL-TEST
+      - Mobile (Dev)
     is_domain_connection: false
     options:
       name: email
@@ -299,10 +302,10 @@ connections:
     id: con_JtqI35PyBXdH21fs
     enabled_clients:
       - Auth0Deploy
-      - freeCodeCamp Classroom (Dev)
-      - freeCodeCamp Mobile (Dev)
-      - freeCodeCamp.dev
-      - freeCodeCamp.local
+      - Classroom (Dev)
+      - freeCodeCamp
+      - LOCAL-TEST
+      - Mobile (Dev)
     is_domain_connection: false
     options:
       gist: false
@@ -332,10 +335,10 @@ connections:
     id: con_q7smQLu3WHlf3Wu0
     enabled_clients:
       - Auth0Deploy
-      - freeCodeCamp Classroom (Dev)
-      - freeCodeCamp Mobile (Dev)
-      - freeCodeCamp.dev
-      - freeCodeCamp.local
+      - Classroom (Dev)
+      - freeCodeCamp
+      - LOCAL-TEST
+      - Mobile (Dev)
     is_domain_connection: false
     options:
       email: true
@@ -380,6 +383,7 @@ tenant:
     new_universal_login_experience_enabled: true
     universal_login: true
     dashboard_ui_next: true
+    mfa_show_factor_list_on_enrollment: false
     disable_clickjack_protection_headers: false
     include_email_in_reset_pwd_redirect: true
     include_email_in_verify_email_redirect: true
@@ -410,19 +414,10 @@ branding:
   logo_url: https://cdn.freecodecamp.org/platform/universal/logo-512X512.png
   templates: []
 prompts:
-  customText:
-    en:
-      login:
-        login:
-          description: Log in to ${clientName}.
-          title: ${clientName}
-      login-id:
-        login-id:
-          title: ${clientName}
-          description: Log in to ${clientName}.
+  customText: {}
   identifier_first: true
   universal_login_experience: new
-  webauthn_platform_first_factor: false
+  webauthn_platform_first_factor: true
 actions: []
 attackProtection:
   breachedPasswordDetection:
