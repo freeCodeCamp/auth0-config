@@ -399,11 +399,12 @@ tenant:
     passwordless:
       allow_magiclink_verify_without_session: true
 emailProvider:
-  name: ses
+  name: smtp
   credentials:
-    accessKeyId: '##SES_ACCESS_KEY_ID##'
-    secretAccessKey: '##SES_ACCESS_SECRET_KEY##'
-    region: us-east-1
+    smtp_host: email-smtp.us-east-1.amazonaws.com
+    smtp_port: 587
+    smtp_user: AKIAWDXTOYVTI5IMWG4K
+    smtp_pass: '##SMTP_PASS##'
   default_from_address: team@freecodecamp.org
   enabled: true
 emailTemplates: []
