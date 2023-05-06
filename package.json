@@ -6,6 +6,8 @@
 	},
   "private": true,
   "scripts": {
+    "export": "pnpm run dev:export && pnpm run prd:export",
+    "import": "pnpm run dev:import && pnpm run prd:import",
     "dev:export": "node -r dotenv/config scripts/export.js dotenv_config_path=.env.development.local",
     "dev:import": "node -r dotenv/config scripts/import.js dotenv_config_path=.env.development.local",
     "prd:export": "node -r dotenv/config scripts/export.js dotenv_config_path=.env.production.local",

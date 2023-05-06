@@ -379,6 +379,7 @@ tenant:
   enabled_locales:
     - en
   flags:
+    enable_custom_domain_in_emails: true
     enable_public_signup_user_exists_error: true
     new_universal_login_experience_enabled: true
     universal_login: true
@@ -419,6 +420,8 @@ prompts:
   identifier_first: true
   universal_login_experience: new
   webauthn_platform_first_factor: true
+migrations:
+  role_users_offset_pagination_over_thousand: true
 actions: []
 attackProtection:
   breachedPasswordDetection:
@@ -450,3 +453,74 @@ attackProtection:
       pre-user-registration:
         max_attempts: 50
         rate: 1200
+customDomains:
+  - custom_domain_id: cd_BMEQkEQzjXrrSKFJ
+    domain: auth.freecodecamp.dev
+    primary: true
+    status: ready
+    tls_policy: recommended
+    type: auth0_managed_certs
+themes:
+  - borders:
+      button_border_weight: 3
+      buttons_style: sharp
+      button_border_radius: 3
+      input_border_weight: 2
+      inputs_style: sharp
+      input_border_radius: 3
+      widget_corner_radius: 0
+      widget_border_weight: 3
+      show_widget_shadow: true
+    colors:
+      primary_button: '#f1be32'
+      primary_button_label: '#0a0a23'
+      secondary_button_border: '#c9cace'
+      secondary_button_label: '#1e212a'
+      base_focus_color: '#635dff'
+      base_hover_color: '#000000'
+      links_focused_components: '#635dff'
+      header: '#1e212a'
+      body_text: '#1e212a'
+      widget_background: '#ffffff'
+      widget_border: '#0a0a23'
+      input_labels_placeholders: '#65676e'
+      input_filled_text: '#000000'
+      input_border: '#0a0a23'
+      input_background: '#ffffff'
+      icons: '#65676e'
+      error: '#850000'
+      success: '#00471b'
+    displayName: Unnamed Theme
+    fonts:
+      font_url: ''
+      reference_text_size: 16
+      title:
+        bold: true
+        size: 150
+      subtitle:
+        bold: false
+        size: 87.5
+      body_text:
+        bold: false
+        size: 87.5
+      buttons_text:
+        bold: true
+        size: 100
+      input_labels:
+        bold: false
+        size: 100
+      links:
+        bold: true
+        size: 87.5
+      links_style: normal
+    page_background:
+      page_layout: center
+      background_color: '#0a0a23'
+      background_image_url: ''
+    themeId: tdkjEqSIwszNTbFQsYFrsULsPyUkzp41
+    widget:
+      logo_position: center
+      logo_url: https://cdn.freecodecamp.org/platform/universal/fcc_secondary.svg
+      logo_height: 30
+      header_text_alignment: center
+      social_buttons_layout: top

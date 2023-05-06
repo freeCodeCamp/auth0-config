@@ -521,6 +521,8 @@ branding:
 prompts:
   customText: {}
   universal_login_experience: classic
+migrations:
+  role_users_offset_pagination_over_thousand: true
 actions: []
 attackProtection:
   breachedPasswordDetection:
@@ -535,14 +537,12 @@ attackProtection:
     enabled: true
     shields:
       - block
-      - user_notification
     mode: count_per_identifier_and_ip
     allowlist: []
     max_attempts: 10
   suspiciousIpThrottling:
     enabled: true
     shields:
-      - admin_notification
       - block
     allowlist: []
     stage:
@@ -558,3 +558,4 @@ customDomains:
     primary: true
     status: ready
     type: auth0_managed_certs
+themes: []

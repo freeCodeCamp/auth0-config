@@ -1,6 +1,6 @@
 {
   "AUTH0_EXCLUDED": [
-    "clientGrants", "databases", "guardianFactorProviders", "guardianFactorTemplates", "guardianFactors", "guardianPhoneFactorMessageTypes", "guardianPhoneFactorSelectedProvider", "guardianPolicies", "hooks", "logStreams", "migrations", "organizations", "roles", "themes", "triggers"
+    "clientGrants", "databases", "guardianFactorProviders", "guardianFactorTemplates", "guardianFactors", "guardianPhoneFactorMessageTypes", "guardianPhoneFactorSelectedProvider", "guardianPolicies", "hooks", "logStreams", "organizations", "roles", "triggers"
   ],
   "EXCLUDED_PROPS": {
     "connections": ["options.client_secret", "options.app_secret", "options.team_id", "options.kid", "options.client_id"],
