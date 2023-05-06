@@ -1,16 +1,21 @@
 {
   "type": "module",
-	"devDependencies": {
-		"auth0-deploy-cli": "7.17.2",
-		"dotenv": "16.0.3"
-	},
+  "devDependencies": {
+    "auth0-deploy-cli": "7.17.2",
+    "axios": "1.4.0",
+    "dotenv": "16.0.3",
+    "html-minifier-terser": "7.2.0"
+  },
   "private": true,
   "scripts": {
     "export": "pnpm run dev:export && pnpm run prd:export",
     "import": "pnpm run dev:import && pnpm run prd:import",
+    "apply-template": "pnpm run dev:apply-template && pnpm run prd:apply-template",
     "dev:export": "node -r dotenv/config scripts/export.js dotenv_config_path=.env.development.local",
     "dev:import": "node -r dotenv/config scripts/import.js dotenv_config_path=.env.development.local",
     "prd:export": "node -r dotenv/config scripts/export.js dotenv_config_path=.env.production.local",
-    "prd:import": "node -r dotenv/config scripts/import.js dotenv_config_path=.env.production.local"
+    "prd:import": "node -r dotenv/config scripts/import.js dotenv_config_path=.env.production.local",
+    "dev:apply-template": "node -r dotenv/config scripts/apply-template.js dotenv_config_path=.env.development.local",
+    "prd:apply-template": "node -r dotenv/config scripts/apply-template.js dotenv_config_path=.env.production.local"
   }
 }

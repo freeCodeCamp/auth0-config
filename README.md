@@ -27,8 +27,11 @@ Happy Contributing!
   as needed.
 - Step 5: To export the current configs from Auth0, run `pnpm prd:export` or
   `pnpm dev:export` as needed for the corresponding tenant.
-- Step 6: To import the configs into Auth0, run `pnpm prd:import` or
-  `pnpm dev:import` as needed for the corresponding tenant.
+- ~~Step 6: To import the configs into Auth0, run `pnpm prd:import` or
+  `pnpm dev:import` as needed for the corresponding tenant.~~ Do not use the
+  import scripts. The Auth0 Deploy CLI import can have destructive effects.
+- Step 7: To apply a branding template, use `pnpm dev:apply-template` or
+  `pnpm prd:apply-template`
 
 For more details and documentation see:
 <https://auth0.com/docs/deploy-monitor/deploy-cli-tool>
