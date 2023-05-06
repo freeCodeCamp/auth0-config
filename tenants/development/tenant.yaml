@@ -390,36 +390,33 @@ tenant:
     include_email_in_verify_email_redirect: true
   friendly_name: freeCodeCamp.dev
   picture_url: https://cdn.freecodecamp.org/platform/universal/logo-512X512.png
-  sandbox_version: '12'
+  sandbox_version: '16'
   support_email: dev@freecodecamp.org
   support_url: freeCodeCamp.dev/support
   universal_login:
     colors:
-      page_background: '#0a0a23'
+      page_background: '#d0d0d5'
       primary: '#f1be32'
     passwordless:
       allow_magiclink_verify_without_session: true
 emailProvider:
-  name: smtp
-  credentials:
-    smtp_host: email-smtp.us-east-1.amazonaws.com
-    smtp_port: 587
-    smtp_user: AKIAWDXTOYVTI5IMWG4K
-    smtp_pass: '##SMTP_PASS##'
+  name: ses
   default_from_address: team@freecodecamp.org
   enabled: true
 emailTemplates: []
 branding:
   colors:
-    page_background: '#0a0a23'
+    page_background: '#d0d0d5'
     primary: '#f1be32'
   logo_url: https://cdn.freecodecamp.org/platform/universal/logo-512X512.png
-  templates: []
+  templates:
+    - template: universal_login
+      body: ./branding_templates/universal_login.html
 prompts:
   customText: {}
   identifier_first: true
   universal_login_experience: new
-  webauthn_platform_first_factor: true
+  webauthn_platform_first_factor: false
 migrations:
   role_users_offset_pagination_over_thousand: true
 actions: []
@@ -515,7 +512,7 @@ themes:
       links_style: normal
     page_background:
       page_layout: center
-      background_color: '#0a0a23'
+      background_color: '#d0d0d5'
       background_image_url: ''
     themeId: tdkjEqSIwszNTbFQsYFrsULsPyUkzp41
     widget:
