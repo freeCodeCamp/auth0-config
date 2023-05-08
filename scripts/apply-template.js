@@ -10,7 +10,8 @@ const clientSecret = process.env.AUTH0_CLIENT_SECRET;
 const minifyHTML = async (inputPath) => {
   const html = await fs.readFile(inputPath, 'utf-8');
   const minified = await minify(html, {
-    collapseWhitespace: true,
+    caseSensitive: true,
+    // collapseWhitespace: true,
     collapseBooleanAttributes: true,
     decodeEntities: true,
     minifyCSS: true,
@@ -87,9 +88,9 @@ const applyTemplate = async (accessToken, htmlData) => {
   const result = await applyTemplate(accessToken, htmlData);
   if (result.status > 200 && result.status < 300) {
     console.log(`
-    
+
       Auth0 template applied successfully
-    
+
     `);
   }
   if (result.status > 400) {

@@ -149,7 +149,7 @@ clients:
       rotation_type: non-rotating
     sso_disabled: false
     token_endpoint_auth_method: none
-  - name: freeCodeCamp
+  - name: freeCodeCamp Learn
     allowed_clients: []
     allowed_logout_urls: []
     allowed_origins:
@@ -202,7 +202,7 @@ connections:
     enabled_clients:
       - Auth0Deploy
       - Classroom (Dev)
-      - freeCodeCamp
+      - freeCodeCamp Learn
       - LOCAL-TEST
       - Mobile (Dev)
     is_domain_connection: false
@@ -216,7 +216,7 @@ connections:
     enabled_clients:
       - Auth0Deploy
       - Classroom (Dev)
-      - freeCodeCamp
+      - freeCodeCamp Learn
       - LOCAL-TEST
       - Mobile (Dev)
     is_domain_connection: false
@@ -303,7 +303,7 @@ connections:
     enabled_clients:
       - Auth0Deploy
       - Classroom (Dev)
-      - freeCodeCamp
+      - freeCodeCamp Learn
       - LOCAL-TEST
       - Mobile (Dev)
     is_domain_connection: false
@@ -336,7 +336,7 @@ connections:
     enabled_clients:
       - Auth0Deploy
       - Classroom (Dev)
-      - freeCodeCamp
+      - freeCodeCamp Learn
       - LOCAL-TEST
       - Mobile (Dev)
     is_domain_connection: false
@@ -413,7 +413,19 @@ branding:
     - template: universal_login
       body: ./branding_templates/universal_login.html
 prompts:
-  customText: {}
+  customText:
+    en:
+      login-id:
+        login-id:
+          description: ' '
+          title: Log in to ${clientName}
+          footerText: Don't have an account yet?
+          buttonText: Continue with Email
+      signup-id:
+        signup-id:
+          title: Sign up for ${clientName}
+          description: ' '
+          buttonText: Continue with Email
   identifier_first: true
   universal_login_experience: new
   webauthn_platform_first_factor: false
@@ -517,7 +529,7 @@ themes:
     themeId: tdkjEqSIwszNTbFQsYFrsULsPyUkzp41
     widget:
       logo_position: center
-      logo_url: https://cdn.freecodecamp.org/platform/universal/fcc_secondary.svg
+      logo_url: https://cdn.freecodecamp.org/platform/universal/fcc_secondary_small.svg
       logo_height: 30
       header_text_alignment: center
       social_buttons_layout: top
