@@ -195,52 +195,7 @@ clients:
     web_origins:
       - https://www.freecodecamp.org
       - https://www.freecodecamp.dev
-  - name: freeCodeCamp Mobile
-    allowed_clients: []
-    allowed_logout_urls:
-      - fccapp://auth.freecodecamp.org/android/org.freecodecamp/callback
-      - >-
-        org.freecodecamp.ios://auth.freecodecamp.org/ios/org.freecodecamp.ios/callback
-    app_type: native
-    callbacks:
-      - fccapp://auth.freecodecamp.org/android/org.freecodecamp/callback
-      - >-
-        org.freecodecamp.ios://auth.freecodecamp.org/ios/org.freecodecamp.ios/callback
-    client_aliases: []
-    cross_origin_auth: false
-    custom_login_page_on: true
-    grant_types:
-      - authorization_code
-      - implicit
-      - refresh_token
-    is_first_party: true
-    is_token_endpoint_ip_header_trusted: false
-    jwt_configuration:
-      alg: RS256
-      lifetime_in_seconds: 36000
-      secret_encoded: false
-    logo_uri: >-
-      https://raw.githubusercontent.com/freeCodeCamp/design-style-guide/master/assets/fcc_puck_500_social.png
-    mobile:
-      android:
-        app_package_name: org.freecodecamp
-    native_social_login:
-      apple:
-        enabled: false
-      facebook:
-        enabled: false
-    oidc_conformant: true
-    refresh_token:
-      expiration_type: non-expiring
-      leeway: 0
-      infinite_token_lifetime: true
-      infinite_idle_token_lifetime: true
-      token_lifetime: 2592000
-      idle_token_lifetime: 1296000
-      rotation_type: non-rotating
-    sso_disabled: false
-    token_endpoint_auth_method: none
-  - name: freeCodeCamp.org
+  - name: freeCodeCamp Learn
     allowed_clients: []
     allowed_logout_urls: []
     allowed_origins:
@@ -286,6 +241,51 @@ clients:
     web_origins:
       - http://*.freecodecamp.org
       - https://*.freecodecamp.org
+  - name: freeCodeCamp Mobile
+    allowed_clients: []
+    allowed_logout_urls:
+      - fccapp://auth.freecodecamp.org/android/org.freecodecamp/callback
+      - >-
+        org.freecodecamp.ios://auth.freecodecamp.org/ios/org.freecodecamp.ios/callback
+    app_type: native
+    callbacks:
+      - fccapp://auth.freecodecamp.org/android/org.freecodecamp/callback
+      - >-
+        org.freecodecamp.ios://auth.freecodecamp.org/ios/org.freecodecamp.ios/callback
+    client_aliases: []
+    cross_origin_auth: false
+    custom_login_page_on: true
+    grant_types:
+      - authorization_code
+      - implicit
+      - refresh_token
+    is_first_party: true
+    is_token_endpoint_ip_header_trusted: false
+    jwt_configuration:
+      alg: RS256
+      lifetime_in_seconds: 36000
+      secret_encoded: false
+    logo_uri: >-
+      https://raw.githubusercontent.com/freeCodeCamp/design-style-guide/master/assets/fcc_puck_500_social.png
+    mobile:
+      android:
+        app_package_name: org.freecodecamp
+    native_social_login:
+      apple:
+        enabled: false
+      facebook:
+        enabled: false
+    oidc_conformant: true
+    refresh_token:
+      expiration_type: non-expiring
+      leeway: 0
+      infinite_token_lifetime: true
+      infinite_idle_token_lifetime: true
+      token_lifetime: 2592000
+      idle_token_lifetime: 1296000
+      rotation_type: non-rotating
+    sso_disabled: false
+    token_endpoint_auth_method: none
 connections:
   - name: apple
     strategy: apple
@@ -296,8 +296,8 @@ connections:
       - freeCodeCamp Chat
       - freeCodeCamp Classroom
       - freeCodeCamp Forum
+      - freeCodeCamp Learn
       - freeCodeCamp Mobile
-      - freeCodeCamp.org
     is_domain_connection: false
     options:
       name: true
@@ -312,8 +312,8 @@ connections:
       - freeCodeCamp Chat
       - freeCodeCamp Classroom
       - freeCodeCamp Forum
+      - freeCodeCamp Learn
       - freeCodeCamp Mobile
-      - freeCodeCamp.org
     is_domain_connection: false
     options:
       name: email
@@ -391,8 +391,8 @@ connections:
       - freeCodeCamp Chat
       - freeCodeCamp Classroom
       - freeCodeCamp Forum
+      - freeCodeCamp Learn
       - freeCodeCamp Mobile
-      - freeCodeCamp.org
     is_domain_connection: false
     options:
       gist: false
@@ -426,8 +426,8 @@ connections:
       - freeCodeCamp Chat
       - freeCodeCamp Classroom
       - freeCodeCamp Forum
+      - freeCodeCamp Learn
       - freeCodeCamp Mobile
-      - freeCodeCamp.org
     is_domain_connection: false
     options:
       email: true
