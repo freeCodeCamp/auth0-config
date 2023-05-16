@@ -259,6 +259,7 @@ clients:
       - authorization_code
       - implicit
       - refresh_token
+      - http://auth0.com/oauth/grant-type/passwordless/otp
     is_first_party: true
     is_token_endpoint_ip_header_trusted: false
     jwt_configuration:
