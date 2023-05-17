@@ -29,7 +29,7 @@ const minifyHTML = async (inputPath) => {
     sortAttributes: true,
     sortClassName: true,
     trimCustomFragments: true,
-    useShortDoctype: true
+    useShortDoctype: false
   });
   return minified;
 };
