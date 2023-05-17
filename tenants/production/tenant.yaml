@@ -5,7 +5,7 @@ pages:
     enabled: false
     html: ./pages/guardian_multifactor.html
   - name: login
-    enabled: true
+    enabled: false
     html: ./pages/login.html
   - name: password_reset
     enabled: false
@@ -530,8 +530,9 @@ prompts:
           title: Sign up for ${clientName}
           description: ' '
           buttonText: Continue with Email
-  identifier_first: false
+  identifier_first: true
   universal_login_experience: new
+  webauthn_platform_first_factor: false
 migrations:
   role_users_offset_pagination_over_thousand: true
 actions: []
