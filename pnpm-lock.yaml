@@ -2,8 +2,8 @@ lockfileVersion: '6.0'
 
 devDependencies:
   auth0-deploy-cli:
-    specifier: 7.17.2
-    version: 7.17.2
+    specifier: 7.17.3
+    version: 7.17.3
   axios:
     specifier: 1.4.0
     version: 1.4.0
@@ -188,8 +188,8 @@ packages:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
     dev: true
 
-  /auth0-deploy-cli@7.17.2:
-    resolution: {integrity: sha512-/1Y2sktSOZnCOONW/xTlKX72xtYb9EMOkp+EmuBr/04MUzGqSGVNQrkiwZLcmKSnKPgeSSnIZMX01kwy/YKjNQ==}
+  /auth0-deploy-cli@7.17.3:
+    resolution: {integrity: sha512-nJ1tIlGrjwBpSDc7GH2cXJVNWE7ERzMjCeEafl7v+SbfiyY7G67HOR6uubO/xJ/H1EiDGqM0PX8Cl+QiKvQyig==}
     hasBin: true
     dependencies:
       ajv: 6.12.6

@@ -1,7 +1,7 @@
 {
   "type": "module",
   "devDependencies": {
-    "auth0-deploy-cli": "7.17.2",
+    "auth0-deploy-cli": "7.17.3",
     "axios": "1.4.0",
     "dotenv": "16.0.3",
     "html-minifier-terser": "7.2.0"
