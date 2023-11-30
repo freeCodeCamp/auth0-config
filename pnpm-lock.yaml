@@ -6,8 +6,8 @@ settings:
 
 devDependencies:
   auth0-deploy-cli:
-    specifier: 7.19.0
-    version: 7.19.0
+    specifier: 7.20.0
+    version: 7.20.0
   axios:
     specifier: 1.6.2
     version: 1.6.2
@@ -192,8 +192,8 @@ packages:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
     dev: true
 
-  /auth0-deploy-cli@7.19.0:
-    resolution: {integrity: sha512-TGIAN4jUY+F8emhRm3T51lyEkN/ICHOyVilzloXSqrhGBX7QfYk3Yr0i6aiVprDFO0FwftxdOpV5LVT3sUtIeg==}
+  /auth0-deploy-cli@7.20.0:
+    resolution: {integrity: sha512-NA76J15BioRyJc4rPsTJERWru3U12jQ9Cf1Q77fWz4l4hayIrofx9n7ZJgs8KIrKE44i/jfS7i+Kv1ZM3gkU2w==}
     hasBin: true
     dependencies:
       ajv: 6.12.6
