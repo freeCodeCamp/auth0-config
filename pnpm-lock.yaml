@@ -6,8 +6,8 @@ settings:
 
 devDependencies:
   auth0-deploy-cli:
-    specifier: 7.20.0
-    version: 7.20.0
+    specifier: 7.21.0
+    version: 7.21.0
   axios:
     specifier: 1.6.7
     version: 1.6.7
@@ -192,8 +192,8 @@ packages:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
     dev: true
 
-  /auth0-deploy-cli@7.20.0:
-    resolution: {integrity: sha512-NA76J15BioRyJc4rPsTJERWru3U12jQ9Cf1Q77fWz4l4hayIrofx9n7ZJgs8KIrKE44i/jfS7i+Kv1ZM3gkU2w==}
+  /auth0-deploy-cli@7.21.0:
+    resolution: {integrity: sha512-hPCW+9m45wDe5ZsM7ZJieg3sRejHL+LO2n8hmrCRhmKr0axbeM5mcdImUghIHNRtgkggp/syiZnm5uFLG4CviQ==}
     hasBin: true
     dependencies:
       ajv: 6.12.6
@@ -236,7 +236,7 @@ packages:
   /axios@0.27.2:
     resolution: {integrity: sha512-t+yRIyySRTp/wua5xEr+z1q60QmLq8ABsS5O9Me1AsE5dfKqgnCFzwiCZZ/cGNd1lq4/7akDWMxdhVlucjmnOQ==}
     dependencies:
-      follow-redirects: 1.15.2
+      follow-redirects: 1.15.5
       form-data: 4.0.0
     transitivePeerDependencies:
       - debug
@@ -553,16 +553,6 @@ packages:
 
   /fn.name@1.1.0:
     resolution: {integrity: sha512-GRnmB5gPyJpAhTQdSZTSp9uaPSvl09KoYcMQtsB9rQoOmzs9dH6ffeccH+Z+cv6P68Hu5bC6JjRh4Ah/mHSNRw==}
-    dev: true
-
-  /follow-redirects@1.15.2:
-    resolution: {integrity: sha512-VQLG33o04KaQ8uYi2tVNbdrWp1QWxNNea+nmIB4EVM28v0hmP17z7aG1+wAkNzVq4KeXTq3221ye5qTJP91JwA==}
-    engines: {node: '>=4.0'}
-    peerDependencies:
-      debug: '*'
-    peerDependenciesMeta:
-      debug:
-        optional: true
     dev: true
 
   /follow-redirects@1.15.5:
